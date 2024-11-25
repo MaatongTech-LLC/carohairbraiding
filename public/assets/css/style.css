@@ -4186,7 +4186,8 @@ a.text-theme:hover, .text-reset:hover {
     overflow: hidden;
     position: relative;
     border-radius: 0;
-    min-width: 100px
+    min-width: 100px;
+    max-width: 120px;
 }
 
 @media (max-width: 1499px) {
@@ -19064,7 +19065,7 @@ span.select2-selection.select2-selection--single:focus {
     font-weight: 700;
     font-family: var(--title-font);
     border: none;
-    color: var(--title-color);
+    color: white;
     background-color: transparent;
     border-radius: 0;
     padding: 0;
@@ -19085,7 +19086,7 @@ span.select2-selection.select2-selection--single:focus {
     line-height: 1;
     background-color: transparent;
     font-family: var(--icon-font);
-    color: var(--title-color);
+    color: white;
     font-weight: 400;
     font-size: 24px;
     display: grid;
@@ -30649,3 +30650,16 @@ span.select2-selection.select2-selection--single:focus {
     display: flex;
     justify-content: space-between;
 }
+
+.nice-select .list {
+    height: 240px; !important;
+    max-height: 240px; !important;
+    overflow: auto !important;
+}
+
+.nice-select.open .nice-select-dropdown {
+    max-height: 240px; /*or whatever height you want*/
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+

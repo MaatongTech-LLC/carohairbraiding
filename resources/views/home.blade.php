@@ -4,6 +4,15 @@
 @endsection
 
 @section('content')
+    @php
+        $directory = public_path('assets/img/services');
+        $images = array_map(function($file) {
+            return [
+                'path' => 'assets/img/services/'. basename($file),
+                'name' => pathinfo($file, PATHINFO_FILENAME)
+                ];
+        }, glob($directory . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE));
+    @endphp
 <section class="th-hero-wrapper hero-9" id="hero">
     <div class="hero-slider-9 th-carousel number-dots" data-fade=
         "true" data-slide-show="1"
@@ -70,8 +79,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <div style="z-index: 0;" class="shape-mockup hero_wrap d-none d-md-block dance" data-top="5%"
@@ -88,8 +95,8 @@
                         <img class="tilt-active" src="assets/img/normal/about_3_1.jpg" alt="About" />
                     </div>
                     <div class="img5 wow fadeInRight">
-                        <img height="274" width="350" style="object-fit: cover;" class="tilt-active"
-                            src="assets/img/normal/about_3_2.jpg" alt="About" />
+                        <img height="274" width="350" style="object-fit: cover; height: 575px;" class="tilt-active"
+                             src="assets/img/normal/about_3_2.jpg" alt="About" />
                     </div>
                     <div class="about-shape">
                         <img src="assets/img/normal/about_3_3.jpg" alt="About" />
@@ -108,7 +115,7 @@
                 <div class="ps-xl-4 wow fadeInUp">
                     <div class="title-area">
                         <span class="sub-title">About Us<img src="assets/img/theme-img/title_right.svg"
-                                alt="" /></span>
+                                                             alt="" /></span>
                         <h2 class="sec-title text-white">
                             Welcome to Our Hair Salon We Will Change Your Look!
                         </h2>
@@ -126,7 +133,7 @@
                                 </div>
                                 <div class="content">
                                     <h3 class="counter">
-                                        <span class="odometer" data-count="26">00</span>
+                                        <span class="odometer" data-count="20">00</span>
                                     </h3>
                                     <p class="counter-card_text text-white">Years of Experience</p>
                                 </div>
@@ -139,7 +146,7 @@
                                 </div>
                                 <div class="content">
                                     <h3 class="counter">
-                                        <span class="odometer" data-count="42">00</span>
+                                        <span class="odometer" data-count="5">00</span>
                                     </h3>
                                     <p class="counter-card_text text-white">Our Awesome Expert</p>
                                 </div>
@@ -298,7 +305,7 @@
     </div>
 </div>
 
-{{--<section class="price-area overflow-hidden space">
+<section class="price-area overflow-hidden space">
     <div class="container">
         <div class="row">
             <div class="col-xl-7 wow fadeInLeft">
@@ -310,10 +317,14 @@
                 <div class="nav nav-tabs pricing-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link price-list active" id="nav-step1-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-step1" type="button">
-                        Adults Price
+                        Women Price
                     </button>
                     <button class="nav-link price-list" id="nav-step2-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-step2" type="button">
+                        Men Price
+                    </button>
+                    <button class="nav-link price-list" id="nav-step3-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-step3" type="button">
                         Kids Price
                     </button>
 
@@ -326,65 +337,16 @@
                                     <div class="price-box_wrapp">
                                         <div class="price-box_content">
                                             <h4 class="box-title">
-                                                <a href="price.html">Hair Cutting & Trimming</a>
+                                                <a href="#">Hair Cutting & Trimming</a>
                                             </h4>
                                             <p class="price-box_desc">
-                                                Our stylists approach every haircut
+                                                Caro Hair Braiding
                                             </p>
                                         </div>
-                                        <span class="price-box_price">$29</span>
+                                        <span class="price-box_price">$20</span>
                                     </div>
                                 </div>
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="price.html">Classic Hair Color</a>
-                                            </h4>
-                                            <p class="price-box_desc">Vibrant colors, finishes</p>
-                                        </div>
-                                        <span class="price-box_price">$45</span>
-                                    </div>
-                                </div>
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="price.html">Keep Mustache in Good</a>
-                                            </h4>
-                                            <p class="price-box_desc">
-                                                Nourish and protect your hair
-                                            </p>
-                                        </div>
-                                        <span class="price-box_price">$44</span>
-                                    </div>
-                                </div>
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="price.html">Blow Dry & Curl</a>
-                                            </h4>
-                                            <p class="price-box_desc">
-                                                Our stylists take your hair type
-                                            </p>
-                                        </div>
-                                        <span class="price-box_price">$66</span>
-                                    </div>
-                                </div>
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="price.html">Shampoo & Set</a>
-                                            </h4>
-                                            <p class="price-box_desc">
-                                                Products from reputable brands
-                                            </p>
-                                        </div>
-                                        <span class="price-box_price">$76</span>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-step2" role="tabpanel">
@@ -393,63 +355,31 @@
                                     <div class="price-box_wrapp">
                                         <div class="price-box_content">
                                             <h4 class="box-title">
-                                                <a href="price.html">Hair Cutting & Trimming</a>
+                                                <a href="#">Hair Cutting & Trimming</a>
                                             </h4>
                                             <p class="price-box_desc">
-                                                Our stylists approach every haircut
-                                            </p>
-                                        </div>
-                                        <span class="price-box_price">$36</span>
-                                    </div>
-                                </div>
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="price.html">Classic Hair Color</a>
-                                            </h4>
-                                            <p class="price-box_desc">Vibrant colors, finishes</p>
-                                        </div>
-                                        <span class="price-box_price">$35</span>
-                                    </div>
-                                </div>
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="price.html">Keep Mustache in Good</a>
-                                            </h4>
-                                            <p class="price-box_desc">
-                                                Nourish and protect your hair
-                                            </p>
-                                        </div>
-                                        <span class="price-box_price">$44</span>
-                                    </div>
-                                </div>
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="price.html">Blow Dry & Curl</a>
-                                            </h4>
-                                            <p class="price-box_desc">
-                                                Our stylists take your hair type
+                                                Caro Hair Braiding
                                             </p>
                                         </div>
                                         <span class="price-box_price">$20</span>
                                     </div>
                                 </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-step3" role="tabpanel">
+                            <div class="price-box-wrapper style2">
                                 <div class="price-box">
                                     <div class="price-box_wrapp">
                                         <div class="price-box_content">
                                             <h4 class="box-title">
-                                                <a href="price.html">Shampoo & Set</a>
+                                                <a href="#">Hair Cutting & Trimming</a>
                                             </h4>
                                             <p class="price-box_desc">
-                                                Products from reputable brands
+                                                Caro Hair Braiding
                                             </p>
                                         </div>
-                                        <span class="price-box_price">$56</span>
+                                        <span class="price-box_price">$20</span>
                                     </div>
                                 </div>
                             </div>
@@ -474,19 +404,20 @@
                             <input type="text" placeholder="Email" class="form-control" />
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="text" placeholder="phone" class="form-control" />
+                            <input type="text" placeholder="Phone" class="form-control" />
                         </div>
                         <div class="form-group col-12">
                             <select name="subject" id="subject" class="form-select nice-select">
                                 <option value="" disabled="disabled" selected="selected" hidden="">
                                     Select Service
                                 </option>
-                                <option value="Box-Braids">Box-Braids</option>
-                                <option value="Locs">Locs</option>
-                                <option value="Twists">Twists</option>
-                                <option value="Cornrows/ Braids">Cornrows/ Braids</option>
-                                <option value="Kids Braids/Cornrows">Kids Braids/Cornrows</option>
 
+
+                                @foreach($images as $image)
+                                    <option value="{{ucwords(str_replace('-', ' ', $image['name']))}}">
+                                        <img src="{{ $image['path'] }}" alt=""> <span>{{ucwords(str_replace('-', ' ', $image['name']))}}</span>
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-12">
@@ -508,5 +439,5 @@
     <div class="shape-mockup jump" data-top="0%" data-right="0%">
         <img src="assets/img/shape/flower_1_11.png" alt="shape" />
     </div>
-</section>--}}
+</section>
 @endsection

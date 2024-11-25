@@ -8,17 +8,18 @@
          style="background-image: url({{ asset('assets/img/hero/hero_bg_1_3.png') }});">
         <div class="container">
             <div class="breadcumb-content">
-                <h2 class="breadcumb-title">Services</h2>
+                <h2 class="breadcumb-title">About Us</h2>
                 <div class="breadcumb-menu-wrapper">
                     <ul class="breadcumb-menu">
                         <li><a href="/">Home</a></li>
-                        <li>Contact Us</li>
+                        <li>About Us</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="about-sec overflow-hidden space" id="about-sec">
+
+    <div class="about-sec overflow-hidden space mb-5" id="about-sec">
         <div class="container align-item-center">
             <div class="row">
                 <div class="col-xl-6">
@@ -27,7 +28,7 @@
                             <img class="tilt-active" src="assets/img/normal/about_3_1.jpg" alt="About" />
                         </div>
                         <div class="img5 wow fadeInRight">
-                            <img height="274" width="350" style="object-fit: cover;" class="tilt-active"
+                            <img height="274" width="350" style="object-fit: cover; height: 575px;" class="tilt-active"
                                  src="assets/img/normal/about_3_2.jpg" alt="About" />
                         </div>
                         <div class="about-shape">
@@ -65,7 +66,7 @@
                                     </div>
                                     <div class="content">
                                         <h3 class="counter">
-                                            <span class="odometer" data-count="15">00</span>
+                                            <span class="odometer" data-count="20">00</span>
                                         </h3>
                                         <p class="counter-card_text text-white">Years of Experience</p>
                                     </div>
@@ -80,176 +81,180 @@
                                         <h3 class="counter">
                                             <span class="odometer" data-count="5">00</span>
                                         </h3>
-                                        <p class="counter-card_text text-white">Our Awesome Professional</p>
+                                        <p class="counter-card_text text-white">Our Awesome Expert</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="btn-group mt-45">
-                            <a href="/service" class="th-btn">Book A Service</a>
+                            <a href="/about" class="th-btn">Learn More</a>
+                            <!-- <div class="about-profile">
+                            <div class="about-avater">
+                                <img src="assets/img/shape/about-thumb_1.png" alt="about"/>
+                            </div>
+                            <div class="media-body">
+                                <h5 class="title">Phillips Lewis</h5>
+                                <span class="desig">CEO of Barber Shop</span>
+                            </div>
+                        </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    {{--<div class="space background-image" style="background-image: url(&quot;assets/img/bg/choose_bg_1.jpg&quot;);">
+    <div class="space" style="background-color: white;" data-bg-src="{{ asset('assets/img/bg/choose_bg_1.jpg') }}">
         <div class="container">
             <div class="choose-title-area">
                 <div class="title-area mb-40 text-center">
                     <span class="sub-title style2">Why Choose Us</span>
-                    <img src="assets/img/theme-img/title_shape_1.svg" alt="">
-                    <h2 class="sec-title text-white">
-                        Your Journey to Inner Harmony Starts Here Choose Our Salon &amp;
+                    <img src="assets/img/theme-img/title_shape_1.svg" alt="" />
+                    <h2 class="sec-title">
+                        Your Journey to Inner Harmony Starts Here Choose Our Salon &
                         Wellness
                     </h2>
                 </div>
             </div>
-            <div class="choose-quote-wrapper">
-                <div class="nav nav-tabs choose-quote-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-step1-tab" data-bs-toggle="tab" data-bs-target="#nav-step1" type="button">
-                        OUR ACHIEVEMENTS
-                    </button>
-                    <button class="nav-link" id="nav-step2-tab" data-bs-toggle="tab" data-bs-target="#nav-step2" type="button">
-                        OUR MISSION
-                    </button>
-                    <button class="nav-link" id="nav-step3-tab" data-bs-toggle="tab" data-bs-target="#nav-step3" type="button">
-                        OUR VISION
-                    </button>
+            <div class="row pt-5 gy-4 align-items-center">
+                <div class="col-xl-5">
+                    <div class="title-area mb-40">
+                        <h3 class="sec-title">
+                            A Haven of Beauty and Wellness The Clear Choice for You
+                        </h3>
+                        <p>
+                            Our beauty salon is a haven of elegance and expertise,
+                            where we are committed to helping you look and feel your
+                            best. With our expert beauty professionals, customized
+                            beauty solutions, premium products, comprehensive
+                            services, relaxing atmosphere, and focus on hygiene, we
+                            invite you to visit us.
+                        </p>
+                        <a href="{{ route('services') }}" class="th-btn">Our Services</a>
+                    </div>
                 </div>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade active show" id="nav-step1" role="tabpanel">
-                        <div class="row gy-4 align-items-center">
-                            <div class="col-xl-7">
-                                <div class="pe-xl-5">
-                                    <div class="video-box1 background-image" style="background-image: url(&quot;assets/img/normal/video_3.jpg&quot;);">
-                                        <img src="assets/img/normal/video_3.jpg" alt="video">
-                                        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video-play-btn play-btn popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
-                                    </div>
-                                </div>
+                <div class="col-xl-7">
+                    <div class="wow fadeInRight overflow-hidden" style="border-top-right-radius: 45px; border-bottom-left-radius: 45px;">
+                        <img class="img-fluid h-50" src="{{ asset('assets/img/normal/salon.jpg') }}" alt="why-us-image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="faq-sec overflow-hidden space">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <form action="mail.php" method="POST" class="quote-form ajax-contact">
+                        <div class="title-area mb-40">
+                            <span class="sub-title text-white">Contact Us<img src="assets/img/theme-img/title_right2.svg" alt=""></span>
+                            <h3 class="sec-title text-white">Get In Touch</h3>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
+                                <i class="fal fa-user"></i>
                             </div>
-                            <div class="col-xl-5">
-                                <div class="title-area mb-40">
-                                    <h3 class="sec-title text-white">
-                                        A Haven of Beauty and Wellness The Clear Choice for You
-                                    </h3>
-                                    <p>
-                                        Our beauty salon is a haven of elegance and expertise,
-                                        where we are committed to helping you look and feel your
-                                        best. With our expert beauty professionals, customized
-                                        beauty solutions, premium products, comprehensive
-                                        services, relaxing atmosphere, and focus on hygiene, we
-                                        invite you to visit us.
-                                    </p>
-                                </div>
-                                <div>
-                                    <a href="{{ route('gallery') }}" class="th-btn">Work Gallery</a>
-                                </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
+                                <i class="fal fa-envelope"></i>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number">
+                                <i class="fal fa-phone"></i>
+                            </div>
+                            <div class="form-group col-md-6">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                            <i class="fal fa-question"></i>
+                        </div>
+                            <div class="form-group col-12">
+                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Write message...."></textarea>
+                                <i class="fal fa-comment"></i>
+                            </div>
+                            <div class="form-btn col-12">
+                                <button class="th-btn style4">
+                                    Send Message<i class="fa-solid fa-arrow-right ms-2"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-step2" role="tabpanel">
-                        <div class="row gy-4 align-items-center">
-                            <div class="col-xl-7">
-                                <div class="pe-xl-5">
-                                    <div class="video-box1 background-image" style="background-image: url(&quot;assets/img/normal/video_4.jpg&quot;);">
-                                        <img src="assets/img/normal/video_4.jpg" alt="video">
-                                        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video-play-btn play-btn popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-5">
-                                <div class="title-area mb-40">
-                                    <h3 class="sec-title text-white">
-                                        Harmony of Beauty and Wellness a Radiant Life
-                                    </h3>
-                                    <p>
-                                        Beauty and wellness are closely linked because a person's
-                                        physical appearance can significantly impact their mental
-                                        and emotional well-being. When people feel good about
-                                        their appearance, it can boost their self-esteem and
-                                        confidence, leading to improved overall well-being.
-                                        Additionally, maintaining a healthy lifestyle and
-                                        practicing self-care can contribute to a radiant and
-                                        youthful appearance.
-                                    </p>
-                                </div>
-                                <div class="checklist style3">
-                                    <ul>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-circle-check"></i>Personal Grooming
-                                        </li>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-circle-check"></i>Physical Wellness
-                                        </li>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-circle-check"></i>Mental
-                                            and Emotional
-                                        </li>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-circle-check"></i>Environmental Wellness
-                                        </li>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-circle-check"></i>Self-confidence
-                                        </li>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-circle-check"></i>Beauty
-                                            and Wellness
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <p class="form-messages mb-0 mt-3"></p>
+                    </form>
+                </div>
+                <div class="col-xl-6">
+                    <div class="ps-xl-4">
+                        <div class="title-area mb-40">
+                            <span class="sub-title">Frequently Asked Any Question<img src="assets/img/theme-img/title_right.svg" alt=""></span>
+                            <h2 class="sec-title text-white">Unveil Your True Beauty At Our Salon</h2>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-step3" role="tabpanel">
-                        <div class="row gy-4 align-items-center">
-                            <div class="col-xl-7">
-                                <div class="pe-xl-5">
-                                    <div class="video-box1 background-image" style="background-image: url(&quot;assets/img/normal/video_5.jpg&quot;);">
-                                        <img src="assets/img/normal/video_5.jpg" alt="video">
-                                        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video-play-btn play-btn popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
+                        <div class="accordion-area accordion" id="faqAccordion">
+                            <div class="accordion-card active">
+                                <div class="accordion-header" id="collapse-item-1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                                        Do the salon have access to internet?
+                                    </button>
+                                </div>
+                                <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="collapse-item-1" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">
+                                            During these consultations, our beauty professionals
+                                            take the time to understand your preferences, concerns,
+                                            and skincare or haircare goals. Based on this
+                                            information, they create customized beauty solutions
+                                            that cater to your specific requirements.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-5">
-                                <div class="title-area mb-40">
-                                    <h3 class="sec-title text-white">
-                                        Cultivating Beauty and Wellness for a Balanced Life
-                                    </h3>
-                                    <p>
-                                        Beauty is often associated with aesthetics and
-                                        attractiveness. It encompasses various aspects, including
-                                        skincare, makeup, hair care, grooming, and fashion. The
-                                        beauty industry offers a wide range of products and
-                                        services to help individuals enhance their appearance and
-                                        boost their self-confidence.
-                                    </p>
-                                    <div class="checklist style3">
-                                        <ul>
-                                            <li>
-                                                <i class="fa-sharp fa-solid fa-circle-check"></i>Healthy and Glowing Skin
-                                            </li>
-                                            <li>
-                                                <i class="fa-sharp fa-solid fa-circle-check"></i>Your
-                                                Natural Beauty
-                                            </li>
-                                            <li>
-                                                <i class="fa-sharp fa-solid fa-circle-check"></i>Physical Well-Being
-                                            </li>
-                                            <li>
-                                                <i class="fa-sharp fa-solid fa-circle-check"></i>Inner
-                                                and Outer Beauty
-                                            </li>
-                                            <li>
-                                                <i class="fa-sharp fa-solid fa-circle-check"></i>
-                                                Beauty and Wellnesse
-                                            </li>
-                                            <li>
-                                                <i class="fa-sharp fa-solid fa-circle-check"></i>Face
-                                                Masks
-                                            </li>
-                                        </ul>
+                            <div class="accordion-card">
+                                <div class="accordion-header" id="collapse-item-2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                        Where can i park my car?
+                                    </button>
+                                </div>
+                                <div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="collapse-item-2" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">
+                                            During these consultations, our beauty professionals
+                                            take the time to understand your preferences, concerns,
+                                            and skincare or haircare goals. Based on this
+                                            information, they create customized beauty solutions
+                                            that cater to your specific requirements.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-card">
+                                <div class="accordion-header" id="collapse-item-3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                                        Are animals accepted?
+                                    </button>
+                                </div>
+                                <div id="collapse-3" class="accordion-collapse collapse" aria-labelledby="collapse-item-3" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">
+                                            During these consultations, our beauty professionals
+                                            take the time to understand your preferences, concerns,
+                                            and skincare or haircare goals. Based on this
+                                            information, they create customized beauty solutions
+                                            that cater to your specific requirements.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-card">
+                                <div class="accordion-header" id="collapse-item-4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+                                        Do the salon accept advance payment?
+                                    </button>
+                                </div>
+                                <div id="collapse-4" class="accordion-collapse collapse" aria-labelledby="collapse-item-4" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">
+                                            During these consultations, our beauty professionals
+                                            take the time to understand your preferences, concerns,
+                                            and skincare or haircare goals. Based on this
+                                            information, they create customized beauty solutions
+                                            that cater to your specific requirements.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -258,5 +263,5 @@
                 </div>
             </div>
         </div>
-    </div>--}}
+    </div>
 @endsection

@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/jquery.datetimepicker.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     </head>
-<body class="bg-black">
+<body class="bg-black2">
     <div class="preloader">
         <div class="preloader-inner">
             <img src="{{ asset('assets/img/logo.png') }}" alt="Caro Hair Braiding" height="250" width="250" /> <span class="loader"></span>
@@ -34,7 +34,7 @@
     <div class="th-menu-wrapper">
         <div class="th-menu-area">
             <div class="mobile-logo">
-                <a href="#"><img src="assets/img/logo-white.png" height="120" width="120" alt="caro hair braiding"></a>
+                <a href="{{ route('home') }}"><img src="{{ asset('assets/img/logo-white.png') }}" height="120" width="120" alt="caro hair braiding"></a>
                 <div class="close-menu">
                     <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
                 </div>
@@ -50,12 +50,12 @@
                     <li>
                         <a href="/services">Services</a>
                     </li>
-                    <li>
+                    {{--<li>
                         <a href="/shop">Shop</a>
                     </li>
                     <li>
                         <a href="/blog">Blog</a>
-                    </li>
+                    </li>--}}
                     <li>
                         <a href="/contact">Contact Us</a>
                     </li>

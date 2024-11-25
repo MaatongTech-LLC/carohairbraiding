@@ -10,10 +10,10 @@
                                 <i class="fa fa-location-dot"></i>10249 Homestead Dr, Brownsburg, IN 46112, USA
                             </li>
                             <li>
-                                <a href="tel:+16165161419 "><i class="fa fa-phone"></i> +1 616-516-1419</a>
+                                <a class="text-white" href="tel:+16165161419 "><i class="fa fa-phone"></i> +1 616-516-1419</a>
                             </li>
                             <li>
-                                <a href="mailto:info@carohairbraiding.com"><i class="fa fa-envelope"></i>
+                                <a class="text-white" href="mailto:info@carohairbraiding.com"><i class="fa fa-envelope"></i>
                                     info@carohairbraiding.com</a>
                             </li>
                             <li><i class="fa fa-calendar-clock"></i> Tue - Sat: 9 AM - 6 PM</li>
@@ -38,11 +38,11 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="/"><img height="81" width="100" src="assets/img/logo.png"
+                            <a href="/"><img height="81" width="100" src="{{ asset('assets/img/logo.png') }}"
                                              alt="caro hair braiding"></a>
                         </div>
                     </div>
-                    <div class="col-auto me-xl-auto">
+                    <div class="col-auto">
                         <nav class="main-menu d-none d-lg-inline-block">
                             <ul>
                                 <li class="item-active">
@@ -57,9 +57,9 @@
                                {{-- <li>
                                     <a class="{{ request()->routeIs('shop') ? 'active' : '' }}" href="/shop">Shop</a>
                                 </li>--}}
-                                <li>
+                                {{--<li>
                                     <a class="{{ request()->routeIs('blog') ? 'active' : '' }}" href="/blog">Blog</a>
-                                </li>
+                                </li>--}}
                                 <li>
                                     <a class="{{ request()->routeIs('contact') ? 'active' : ''}}" href="/contact">Contact Us</a>
                                 </li>
@@ -67,13 +67,7 @@
                         </nav>
                         <button class="th-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
                     </div>
-                    <div class="col-auto d-none d-xl-block">
-                        <div class="header-button">
-                            <a href="#" class="icon-btn sideMenuToggler2"><i
-                                    class="fa fa-cart-shopping"></i><span class="badge">5</span></a>
-                            <a href="/booking" class="th-btn"><i class="fa fa-calendar-alt"></i> Booking</a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

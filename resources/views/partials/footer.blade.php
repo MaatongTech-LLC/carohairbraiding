@@ -6,7 +6,7 @@
                     <div class="widget footer-widget">
                         <div class="th-widget-about">
                             <div class="about-logo">
-                                <a href="index.html"><img src="assets/img/logo-white.png" height="150"
+                                <a href="{{ route('home') }}"><img src="{{ asset('assets/img/logo-white.png') }}" height="150"
                                         width="150" alt="Caro Hair Braiding" /></a>
                             </div>
                             <p class="about-text">
@@ -78,28 +78,28 @@
                         <h3 class="widget_title">Photos Gallery</h3>
                         <div class="sidebar-gallery">
                             <div class="gallery-thumb">
-                                <img src="assets/img/gallery/gallery_1_1.jpg" alt="Gallery Image" />
-                                <a href="assets/img/gallery/gallery_1_1.jpg" class="gallery-btn popup-image"></a>
+                                <img class="img-fluid h-100" style="object-fit: cover;" src="{{ asset('assets/img/gallery/gallery_1_1.jpg')}}" alt="Gallery Image" />
+                                <a href="{{ asset('assets/img/gallery/gallery_1_1.jpg')}}" class="gallery-btn popup-image"><i class="fa fa-link"></i></a>
                             </div>
                             <div class="gallery-thumb">
-                                <img src="assets/img/gallery/gallery_1_2.jpg" alt="Gallery Image" />
-                                <a href="assets/img/gallery/gallery_1_2.jpg" class="gallery-btn popup-image"></a>
+                                <img class="img-fluid h-100" style="object-fit: cover;" src="{{ asset('assets/img/gallery/gallery_1_2.jpg')}}" alt="Gallery Image" />
+                                <a href="{{ asset('assets/img/gallery/gallery_1_2.jpg')}}" class="gallery-btn popup-image"><i class="fa fa-link"></i></a>
                             </div>
                             <div class="gallery-thumb">
-                                <img src="assets/img/gallery/gallery_1_3.jpg" alt="Gallery Image" />
-                                <a href="assets/img/gallery/gallery_1_3.jpg" class="gallery-btn popup-image"></a>
+                                <img class="img-fluid h-100" style="object-fit: cover;" src="{{ asset('assets/img/gallery/gallery_1_3.jpg')}}" alt="Gallery Image" />
+                                <a href="{{ asset('assets/img/gallery/gallery_1_3.jpg')}}" class="gallery-btn popup-image"><i class="fa fa-link"></i></a>
                             </div>
                             <div class="gallery-thumb">
-                                <img src="assets/img/gallery/gallery_1_4.jpg" alt="Gallery Image" />
-                                <a href="assets/img/gallery/gallery_1_4.jpg" class="gallery-btn popup-image"></a>
+                                <img class="img-fluid h-100" style="object-fit: cover;" src="{{ asset('assets/img/gallery/gallery_1_4.jpg')}}" alt="Gallery Image" />
+                                <a href="{{ asset('assets/img/gallery/gallery_1_4.jpg')}}" class="gallery-btn popup-image"><i class="fa fa-link"></i></a>
                             </div>
                             <div class="gallery-thumb">
-                                <img src="assets/img/gallery/gallery_1_5.jpg" alt="Gallery Image" />
-                                <a href="assets/img/gallery/gallery_1_5.jpg" class="gallery-btn popup-image"></a>
+                                <img class="img-fluid h-100" style="object-fit: cover;" src="{{ asset('assets/img/gallery/gallery_1_5.jpg')}}" alt="Gallery Image" />
+                                <a href="{{ asset('assets/img/gallery/gallery_1_5.jpg')}}" class="gallery-btn popup-image"><i class="fa fa-link"></i></a>
                             </div>
                             <div class="gallery-thumb">
-                                <img src="assets/img/gallery/gallery_1_6.jpg" alt="Gallery Image" />
-                                <a href="assets/img/gallery/gallery_1_6.jpg" class="gallery-btn popup-image"></a>
+                                <img class="img-fluid h-100" style="object-fit: cover;" src="{{ asset('assets/img/gallery/gallery_1_6.jpg')}}" alt="Gallery Image" />
+                                <a href="{{ asset('assets/img/gallery/gallery_1_6.jpg')}}" class="gallery-btn popup-image"><i class="fa fa-link"></i></a>
                             </div>
                         </div>
                     </div>

@@ -21,6 +21,11 @@
     <section class="space shape-mockup-wrap">
         <div class="container">
             <div class="row gy-5">
+                <div class="title-area mb-40 text-center text-xl-start">
+                    <span class="sub-title">Our Services<img src="assets/img/theme-img/title_right.svg"
+                                                                alt="" /></span>
+                    <h2 class="sec-title text-white">Discover the amazing haircuts you can get with us</h2>
+                </div>
                 @php
                     $directory = public_path('assets/img/services');
                     $images = array_map(function($file) {
@@ -32,7 +37,7 @@
                 @endphp
 
                 @foreach($images as $image)
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                         <div>
                             <div class="service-box">
                                 <div class="service-box_icon">
@@ -50,7 +55,7 @@
                             </div>
                             <div class="service-img">
                                 <img class="h-100" style="min-height: 280px; max-height: 300px; object-fit: cover;" src="{{ asset($image['path']) }}" alt="Service">
-                                <a  href="{{ route('booking') }}" class="th-btn d-block">Book now</a>
+                                <a  href="{{ route('booking', $image['name'] ) }}" class="th-btn d-block">Book now</a>
                             </div>
                         </div>
                     </div>
@@ -65,4 +70,23 @@
             <img src="assets/img/shape/leaves_7.png" alt="shape">
         </div>
     </section>
+
+{{--    Modal --}}{{--
+    <div class="modal fade" tabindex="-1" id="bookingModal" style="z-index: 9999999;">
+        <div class="modal-dialog modal-dialog-centered modal-xl border-0">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h2 class="modal-title">Book A Service</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i></button>
+                </div>
+                <div class="modal-body border-0">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>--}}
 @endsection

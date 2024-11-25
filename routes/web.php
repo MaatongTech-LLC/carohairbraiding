@@ -30,8 +30,8 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
-Route::get('/booking', function () {
-    return view('booking');
+Route::get('/booking/{service}', function ($service) {
+    return view('booking', ['service' => $service]);
 })->name('booking');
 
 Route::get('/services/{service}', function($service) {
