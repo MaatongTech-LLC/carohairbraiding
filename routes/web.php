@@ -1,39 +1,29 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
+Route::get('/services', [HomeController::class, 'services'])->name('services');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/booking/{id}', [HomeController::class, 'booking'])->name('booking');
 
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
 
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 
-Route::get('/gallery', function () {
-    return view('gallery');
-})->name('gallery');
+Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+Route::post('/checkout/{id}', [HomeController::class, 'checkoutPay'])->name('checkout.pay');
 
-Route::get('/booking/{service}', function ($service) {
-    return view('booking', ['service' => $service]);
-})->name('booking');
+// Stripe routes
+Route::post('/stripe/payment', [HomeController::class, 'stripePost'])->name('stripe');
 
-Route::get('/services/{service}', function($service) {
-    return view('service-single', ['service' => $service]);
-})->name('service-single');
+// PayPal payment routes
+Route::get('/paypal/payment/success/{booking_id}', [HomeController::class, 'paypalSuccess'])->name('paypal.payment.success');
+Route::get('/paypal/payment/cancel', [HomeController::class, 'paypalCancel'])->name('paypal.payment.cancel');
+
+
+require_once __DIR__ . '/admin.php';

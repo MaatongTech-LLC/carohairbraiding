@@ -23,46 +23,50 @@
                 <div class="col-lg-6">
                     <div class="product-big-img">
                         <div class="img">
-                            <img src="{{ asset('assets/img/services/'. $service . '.jpg') }}" alt="Product Image">
+                            <img src="{{ Storage::url($service->image) }}" alt="Product Image">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="product-about">
-                        <p class="price">$20.00</p>
-                        <h2 class="product-title">{{ucwords(str_replace('-', ' ', $service))}}</h2>
-                        <div class="product-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                  <span style="width: 100%">Rated <strong class="rating">5.00</strong> out of 5 based
-                    on <span class="rating">1</span> customer rating</span>
-                            </div>
-                            <a href="shop-details.html" class="woocommerce-review-link">(<span class="count">2</span> customer reviews)</a>
-                        </div>
+                        <p class="price">${{$service->price}}</p>
+                        <h2 class="product-title">{{ ucwords($service->name) }}</h2>
+
                         <p class="text">
-                            Syndicate customized growth strategies prospective human capital
-                            leverage other's optimal e-markets without transparent catalysts
-                            for change. Credibly coordinate highly efficient methods of
-                            empowerment cross unit solutions. It provides a rejuvenating
-                            experience that promotes relaxation
+                           {{ $service->description }}
                         </p>
-                        <div class="actions pt-5">
-                            <div class="form-group col-12">
-                                <label class="mb-2" for="date-pick">Date</label>
-                                <input type="text" class="date-pick form-control" name="date" id="date-pick"
-                                       placeholder="Select Date" />
-                            </div>
-                            <div class="form-group col-12">
-                                <label class="mb-2" for="time-pick">Time</label>
-                                <input type="text" class="time-pick form-control" name="time" id="time-pick"
-                                       placeholder="Select Time" />
-                            </div>
-                            <button class="th-btn">Checkout</button>
+                        <div class="product_meta mt-4">
+                            <span class="posted_in">Type: <a href="#" rel="tag">{{ ucwords($service->type) }}</a></span>
+                            <span class="">Duration: <a href="#" rel="tag">{{ $service->duration }}</a></span>
                         </div>
-                        {{--<div class="product_meta">
-                            <span class="sku_wrapper">SKU: <span class="sku">123ABC</span></span>
-                            <span class="posted_in">Category: <a href="shop.html" rel="tag">Nail Polish</a></span>
-                            <span>Tags: <a href="shop.html">Nail Care</a><a href="shop.html">Nail Art</a></span>
-                        </div>--}}
+                        <form action="{{ route('checkout') }}">
+                            <div class="actions">
+                                <input type="hidden" value="{{ $service->id }}" name="service_id">
+                                <div class="form-group col-12">
+                                    <label class="mb-2" for="date-pick">Date</label>
+                                    <input type="text" class="date-pick form-control" name="date" id="date-pick"
+                                           placeholder="Select Date" required/>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label class="mb-2" for="time-pick">Time</label>
+                                    <input type="text" class="time-pick form-control" name="time" id="time-pick"
+                                           placeholder="Select Time" required/>
+                                </div>
+
+                                <div class="wc_payment_method payment_method_cod">
+                                    <input id="price" type="radio" class="input-radio" value="full_price" name="pay_price" required> <label
+                                        for="price">Pay full amount <strong>(${{ $service->price }})</strong></label>
+                                    <div class="payment_box payment_method_cod"><p>Pay the service full amount.</p></div>
+                                </div>
+                                <div class="wc_payment_method payment_method_cod">
+                                    <input id="deposit_price" type="radio" class="input-radio" value="deposit" name="pay_price" required> <label
+                                        for="deposit_price">Pay deposit <strong>(${{ $service->deposit_price }})</strong></label>
+                                    <div class="payment_box payment_method_cod"><p>Pay for the booking deposit.</p></div>
+                                </div>
+
+                            </div>
+                            <button type="submit" class="th-btn">Checkout</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -70,3 +74,13 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <!-- Include Mobiscroll -->
+    <script src="js/mobiscroll.javascript.min.js"></script>
+    <link href="css/mobiscroll.javascript.min.css" rel="stylesheet" type="text/css">
+
+    <script>
+
+    </script>
+@endpush

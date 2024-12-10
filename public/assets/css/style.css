@@ -632,7 +632,7 @@ input[type="radio"] ~ label::before {
 }
 
 input[type="radio"]:checked ~ label::before {
-    border-color: var(--theme-color);
+    border-color: var(--theme-color2);
     background-color: var(--theme-color);
     color: var(--white-color)
 }
@@ -5768,8 +5768,9 @@ ul.widget_rss, ul.wp-block-rss, ol.widget_rss, ol.wp-block-rss {
 }
 
 .header-logo {
-    padding-top: 15px;
-    padding-bottom: 15px
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.008);
 }
 
 .header-links ul {
@@ -13294,10 +13295,10 @@ span.select2-selection.select2-selection--single:focus {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    background: var(--smoke-color);
-    width: 90px;
-    height: 90px;
-    line-height: 90px;
+    /*background: var(--smoke-color);*/
+    width: 95px;
+    height: 95px;
+    line-height: 95px;
     border: 1px solid var(--theme-color);
     border-radius: 50%;
     text-align: center;
@@ -13305,7 +13306,7 @@ span.select2-selection.select2-selection--single:focus {
 }
 
 .about-tag {
-    background: var(--smoke-color);
+    background: #1b1b1b;
     display: inline-block;
     min-height: 142px;
     min-width: 142px;

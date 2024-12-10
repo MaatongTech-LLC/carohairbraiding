@@ -1,0 +1,1 @@
+<div id="<?php echo $id; ?>"></div><?php /**PATH C:\Users\Loic\Desktop\Maatong Group\Client Projects\Caro Hair Braiding\carohairbraiding\vendor\arielmejiadev\larapex-charts\src/../resources/views/chart/container.blade.php ENDPATH**/ ?>

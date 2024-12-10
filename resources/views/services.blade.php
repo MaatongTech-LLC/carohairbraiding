@@ -36,7 +36,7 @@
                     }, glob($directory . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE));
                 @endphp
 
-                @foreach($images as $image)
+                @foreach($services as $service)
                     <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                         <div>
                             <div class="service-box">
@@ -46,16 +46,16 @@
                                     </div>
                                 </div>
                                 <h5 class="box-title mb-2">
-                                    <span>{{ucwords(str_replace('-', ' ', $image['name']))}}</span>
+                                    <span>{{ ucwords($service->name) }}</span>
                                 </h5>
                                 <p class="service-box_text">
-                                    Braids are tightly woven close to the scalp in straight or curved patterns, often for protective styling.
+                                    {{ $service->description }}
                                 </p>
 
                             </div>
                             <div class="service-img">
-                                <img class="h-100" style="min-height: 280px; max-height: 300px; object-fit: cover;" src="{{ asset($image['path']) }}" alt="Service">
-                                <a  href="{{ route('booking', $image['name'] ) }}" class="th-btn d-block">Book now</a>
+                                <img class="h-100" style="min-height: 280px; max-height: 300px; object-fit: cover;" src="{{ Storage::url($service->image) }}" alt="Service">
+                                <a  href="{{ route('booking', $service->id ) }}" class="th-btn d-block">Book now</a>
                             </div>
                         </div>
                     </div>

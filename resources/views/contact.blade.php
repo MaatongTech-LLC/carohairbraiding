@@ -8,7 +8,7 @@
          style="background-image: url({{ asset('assets/img/hero/hero_bg_1_3.png') }});">
         <div class="container">
             <div class="breadcumb-content">
-                <h2 class="breadcumb-title">Services</h2>
+                <h2 class="breadcumb-title">Contact Us</h2>
                 <div class="breadcumb-menu-wrapper">
                     <ul class="breadcumb-menu">
                         <li><a href="/">Home</a></li>

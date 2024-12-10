@@ -86,90 +86,90 @@
             alt="shape"></div>
 
 </section>
-<div class="about-sec overflow-hidden space" id="about-sec">
-    <div class="container align-item-center">
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="img-box4">
-                    <div class="img4 wow fadeInUp">
-                        <img class="tilt-active" src="assets/img/normal/about_3_1.jpg" alt="About" />
-                    </div>
-                    <div class="img5 wow fadeInRight">
-                        <img height="274" width="350" style="object-fit: cover; height: 575px;" class="tilt-active"
-                             src="assets/img/normal/about_3_2.jpg" alt="About" />
-                    </div>
-                    <div class="about-shape">
-                        <img src="assets/img/normal/about_3_3.jpg" alt="About" />
-                    </div>
-                    <div class="about-company-since-wrap">
-                        <div class="about-icon">
-                            <img src="assets/img/logo.png" height="70" width="70" alt="img" />
+    <div class="about-sec overflow-hidden space mb-5" id="about-sec">
+        <div class="container align-item-center">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="img-box4">
+                        <div class="img4 wow fadeInUp">
+                            <img class="tilt-active" src="{{ asset('assets/img/normal/about_3_1.jpg') }}" alt="About" />
                         </div>
-                        <div class="about-tag">
-                            <span class="about-anime">Company Since 2019</span>
+                        <div class="img5 wow fadeInRight">
+                            <img height="274" width="350" style="object-fit: cover; height: 575px;" class="tilt-active"
+                                 src="{{ asset('assets/img/normal/about_3_2.jpg') }}" alt="About" />
+                        </div>
+                        <div class="about-shape">
+                            <img src="{{ asset('assets/img/normal/about_3_3.jpg') }}" alt="About" />
+                        </div>
+                        <div class="about-company-since-wrap">
+                            <div class="about-icon">
+                                <img src="{{ asset('assets/img/logo.png') }}" height="80" width="80" alt="logo" />
+                            </div>
+                            <div class="about-tag">
+                                <span class="about-anime">Company Since 2019</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="ps-xl-4 wow fadeInUp">
-                    <div class="title-area">
+                <div class="col-xl-6">
+                    <div class="ps-xl-4 wow fadeInUp">
+                        <div class="title-area">
                         <span class="sub-title">About Us<img src="assets/img/theme-img/title_right.svg"
                                                              alt="" /></span>
-                        <h2 class="sec-title text-white">
-                            Welcome to Our Hair Salon We Will Change Your Look!
-                        </h2>
-                        <p class="about-desc">
-                            We are committed to using high-quality hair care products to
-                            ensure that your hair receives the best possible treatment.
-                            From shampoos and conditioners to styling products.
-                        </p>
-                    </div>
-                    <div class="about-counter">
-                        <div class="th-counterup">
-                            <div class="inner">
-                                <div class="icon">
-                                    <img src="assets/img/icon/counter_2_1.svg" alt="" />
+                            <h2 class="sec-title text-white">
+                                Welcome to Our Hair Salon We Will Change Your Look!
+                            </h2>
+                            <p class="about-desc">
+                                We are committed to using high-quality hair care products to
+                                ensure that your hair receives the best possible treatment.
+                                From shampoos and conditioners to styling products.
+                            </p>
+                        </div>
+                        <div class="about-counter">
+                            <div class="th-counterup">
+                                <div class="inner">
+                                    <div class="icon">
+                                        <img src="assets/img/icon/counter_2_1.svg" alt="" />
+                                    </div>
+                                    <div class="content">
+                                        <h3 class="counter">
+                                            <span class="odometer" data-count="20">00</span>
+                                        </h3>
+                                        <p class="counter-card_text text-white">Years of Experience</p>
+                                    </div>
                                 </div>
-                                <div class="content">
-                                    <h3 class="counter">
-                                        <span class="odometer" data-count="20">00</span>
-                                    </h3>
-                                    <p class="counter-card_text text-white">Years of Experience</p>
+                            </div>
+                            <div class="th-counterup">
+                                <div class="inner">
+                                    <div class="icon">
+                                        <img src="assets/img/icon/man.svg" alt="" />
+                                    </div>
+                                    <div class="content">
+                                        <h3 class="counter">
+                                            <span class="odometer" data-count="5">00</span>
+                                        </h3>
+                                        <p class="counter-card_text text-white">Our Awesome Expert</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="th-counterup">
-                            <div class="inner">
-                                <div class="icon">
-                                    <img src="assets/img/icon/man.svg" alt="" />
-                                </div>
-                                <div class="content">
-                                    <h3 class="counter">
-                                        <span class="odometer" data-count="5">00</span>
-                                    </h3>
-                                    <p class="counter-card_text text-white">Our Awesome Expert</p>
-                                </div>
+                        <div class="btn-group mt-45">
+                            <a href="/about" class="th-btn">Learn More</a>
+                            <!-- <div class="about-profile">
+                            <div class="about-avater">
+                                <img src="assets/img/shape/about-thumb_1.png" alt="about"/>
                             </div>
+                            <div class="media-body">
+                                <h5 class="title">Phillips Lewis</h5>
+                                <span class="desig">CEO of Barber Shop</span>
+                            </div>
+                        </div> -->
                         </div>
-                    </div>
-                    <div class="btn-group mt-45">
-                        <a href="/about" class="th-btn">Learn More</a>
-                        <!-- <div class="about-profile">
-                        <div class="about-avater">
-                            <img src="assets/img/shape/about-thumb_1.png" alt="about"/>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="title">Phillips Lewis</h5>
-                            <span class="desig">CEO of Barber Shop</span>
-                        </div>
-                    </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <div class="overflow-hidden">
     <div class="service-area space" id="service-sec">
         <div class="container">
@@ -182,28 +182,9 @@
             </div>
             <div class="row gy-4">
                 <div class="col-md-6 col-lg-6 col-xl-4">
-                    <div class="service-grid wow fadeInUp">
-                        <div class="service-grid_overlay" data-bg-src="assets/img/shape/service_shape.png"></div>
-                        <h3 class="service-grid_number">01</h3>
-                        <div class="service-grid_icon">
-                            <img src="assets/img/icon/service_3_1.svg" alt="" />
-                        </div>
-                        <div class="service-grid-content">
-                            <h3 class="box-title">
-                                <a href="#">Haircut</a>
-                            </h3>
-                            <p class="service-grid_text">
-                                A versatile and classic haircut that can be worn in
-                                different lengths and styles, suitable for various face
-                                shapes
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4">
                     <div class="service-grid wow fadeInDown">
                         <div class="service-grid_overlay" data-bg-src="assets/img/shape/service_shape.png"></div>
-                        <h3 class="service-grid_number">02</h3>
+                        <h3 class="service-grid_number">01</h3>
                         <div class="service-grid_icon">
                             <img src="assets/img/icon/service_3_2.svg" alt="" />
                         </div>
@@ -219,27 +200,9 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-4">
-                    <div class="service-grid wow fadeInUp">
-                        <div class="service-grid_overlay" data-bg-src="assets/img/shape/service_shape.png"></div>
-                        <h3 class="service-grid_number">03</h3>
-                        <div class="service-grid_icon">
-                            <img src="assets/img/icon/service_3_3.svg" alt="" />
-                        </div>
-                        <div class="service-grid-content">
-                            <h3 class="box-title">
-                                <a href="#">Hair Coloring</a>
-                            </h3>
-                            <p class="service-grid_text">
-                                Hair coloring is the process of changing the natural color
-                                of ones hair using different types color treatments.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4">
                     <div class="service-grid wow fadeInDown">
                         <div class="service-grid_overlay" data-bg-src="assets/img/shape/service_shape.png"></div>
-                        <h3 class="service-grid_number">04</h3>
+                        <h3 class="service-grid_number">02</h3>
                         <div class="service-grid_icon">
                             <img src="assets/img/icon/service_3_4.svg" alt="" />
                         </div>
@@ -257,7 +220,7 @@
                 <div class="col-md-6 col-lg-6 col-xl-4">
                     <div class="service-grid wow fadeInUp">
                         <div class="service-grid_overlay" data-bg-src="assets/img/shape/service_shape.png"></div>
-                        <h3 class="service-grid_number">05</h3>
+                        <h3 class="service-grid_number">03</h3>
                         <div class="service-grid_icon">
                             <img src="assets/img/icon/service_3_5.svg" alt="" />
                         </div>
@@ -268,24 +231,6 @@
                             <p class="service-grid_text">
                                 Once you finish shaving, rinse your skin with cool water to
                                 close the pores and then pat dry with a clean towel.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4">
-                    <div class="service-grid wow fadeInDown">
-                        <div class="service-grid_overlay" data-bg-src="assets/img/shape/service_shape.png"></div>
-                        <h3 class="service-grid_number">06</h3>
-                        <div class="service-grid_icon">
-                            <img src="assets/img/icon/service_3_6.svg" alt="" />
-                        </div>
-                        <div class="service-grid-content">
-                            <h3 class="box-title">
-                                <a href="#">Hair Trimming</a>
-                            </h3>
-                            <p class="service-grid_text">
-                                Hair trimming is the process of cutting the ends of your
-                                hair to maintain its length, shape, and overall health.
                             </p>
                         </div>
                     </div>
@@ -333,55 +278,66 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade active show" id="nav-step1" role="tabpanel">
                             <div class="price-box-wrapper style2">
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="#">Hair Cutting & Trimming</a>
-                                            </h4>
-                                            <p class="price-box_desc">
-                                                Caro Hair Braiding
-                                            </p>
+                                @forelse($data['womenServices'] as $service)
+                                    <div class="price-box">
+                                        <div class="price-box_wrapp">
+                                            <div class="price-box_content">
+                                                <h4 class="box-title">
+                                                    <a href="#">{{ $service->name }}</a>
+                                                </h4>
+                                                <p class="price-box_desc">
+                                                    Caro Hair Braiding
+                                                </p>
+                                            </div>
+                                            <span class="price-box_price">${{ $service->price }}</span>
                                         </div>
-                                        <span class="price-box_price">$20</span>
                                     </div>
+                                    @empty
+                                        <h5 class="text-center text-dark">No Service Yet</h5>
+                                    @endforelse
                                 </div>
-
-                            </div>
                         </div>
                         <div class="tab-pane fade" id="nav-step2" role="tabpanel">
                             <div class="price-box-wrapper style2">
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="#">Hair Cutting & Trimming</a>
-                                            </h4>
-                                            <p class="price-box_desc">
-                                                Caro Hair Braiding
-                                            </p>
+                                @forelse($data['menServices'] as $service)
+                                    <div class="price-box">
+                                        <div class="price-box_wrapp">
+                                            <div class="price-box_content">
+                                                <h4 class="box-title">
+                                                    <a href="#">{{ $service->name }}</a>
+                                                </h4>
+                                                <p class="price-box_desc">
+                                                    Caro Hair Braiding
+                                                </p>
+                                            </div>
+                                            <span class="price-box_price">${{ $service->price }}</span>
                                         </div>
-                                        <span class="price-box_price">$20</span>
                                     </div>
-                                </div>
+                                @empty
+                                    <h5 class="text-center text-dark">No Service Yet</h5>
+                                @endforelse
 
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-step3" role="tabpanel">
                             <div class="price-box-wrapper style2">
-                                <div class="price-box">
-                                    <div class="price-box_wrapp">
-                                        <div class="price-box_content">
-                                            <h4 class="box-title">
-                                                <a href="#">Hair Cutting & Trimming</a>
-                                            </h4>
-                                            <p class="price-box_desc">
-                                                Caro Hair Braiding
-                                            </p>
+                                @forelse($data['kidsServices'] as $service)
+                                    <div class="price-box">
+                                        <div class="price-box_wrapp">
+                                            <div class="price-box_content">
+                                                <h4 class="box-title">
+                                                    <a href="#">{{ $service->name }}</a>
+                                                </h4>
+                                                <p class="price-box_desc">
+                                                    Caro Hair Braiding
+                                                </p>
+                                            </div>
+                                            <span class="price-box_price">${{ $service->price }}</span>
                                         </div>
-                                        <span class="price-box_price">$20</span>
                                     </div>
-                                </div>
+                                @empty
+                                    <h5 class="text-center text-dark">No Service Yet</h5>
+                                @endforelse
                             </div>
                         </div>
                     </div>
@@ -393,51 +349,73 @@
                         <h3 class="sec-title mb-0 text-white">Booking Your Seat</h3>
                         <img src="assets/img/theme-img/title_shape_2.svg" alt="" />
                     </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <input type="text" placeholder="First Name" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" placeholder="Last Name" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" placeholder="Email" class="form-control" />
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <input type="text" placeholder="Phone" class="form-control" />
-                        </div>
-                        <div class="form-group col-12">
-                            <select name="subject" id="subject" class="form-select nice-select">
-                                <option value="" disabled="disabled" selected="selected" hidden="">
-                                    Select Service
-                                </option>
+                    <form action="{{ route('checkout') }}">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <input type="text" placeholder="Full Name" name="full_name" class="form-control"  required/>
+                            </div>
 
-
-                                @foreach($images as $image)
-                                    <option value="{{ucwords(str_replace('-', ' ', $image['name']))}}">
-                                        <img src="{{ $image['path'] }}" alt=""> <span>{{ucwords(str_replace('-', ' ', $image['name']))}}</span>
+                            <div class="form-group col-md-6">
+                                <input type="text" placeholder="Email" name="email" class="form-control"  required/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" placeholder="Phone" name="phone" class="form-control"  required/>
+                            </div>
+                            <div class="form-group col-12">
+                                <select name="service_id" id="subject" class="form-select" required>
+                                    <option value="" disabled="disabled" selected="selected" hidden="">
+                                        Select Service
                                     </option>
-                                @endforeach
-                            </select>
+                                    <optgroup label="Women">
+                                        @foreach($data['womenServices'] as $service)
+                                            <option value="{{ $service->id }}">
+                                                <img src="{{ \Illuminate\Support\Facades\Storage::url($service->image) }}" alt=""> <span>{{ ucwords($service->name) }}</span>
+                                            </option>
+                                        @endforeach
+                                    </optgroup>
+                                    <optgroup label="Men">
+                                        @foreach($data['menServices'] as $service)
+                                            <option value="{{ $service->id }}">
+                                                <img src="{{ \Illuminate\Support\Facades\Storage::url($service->image) }}" alt=""> <span>{{ ucwords($service->name) }}</span>
+                                            </option>
+                                        @endforeach
+                                    </optgroup>
+                                    <optgroup label="Kids">
+                                        @foreach($data['kidsServices'] as $service)
+                                            <option value="{{ $service->id }}">
+                                                <img src="{{ \Illuminate\Support\Facades\Storage::url($service->image) }}" alt=""> <span>{{ ucwords($service->name) }}</span>
+                                            </option>
+                                        @endforeach
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input id="price" type="radio" class="form-control text-light" value="full_price" name="pay_price" required>
+                                <label for="price" class="text-white">Pay full amount</label>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input id="deposit_price" type="radio" class="form-control text-light" value="deposit" name="pay_price" required>
+                                <label for="deposit_price" class="text-white">Pay deposit ($20.00)</label>
+                            </div>
+                            <div class="form-group col-12">
+                                <input type="text" class="date-pick form-control" name="date" id="date-pick"
+                                       placeholder="Select Date" />
+                            </div>
+                            <div class="form-group col-12">
+                                <input type="text" class="time-pick form-control" name="time" id="time-pick"
+                                       placeholder="Select Time" />
+                            </div>
+                            <div class="btn-group justify-content-center justify-content-lg-start">
+                                <button type="submit" class="th-btn style4 fw-btn">Booking Now</button>
+                            </div>
                         </div>
-                        <div class="form-group col-12">
-                            <input type="text" class="date-pick form-control" name="date" id="date-pick"
-                                placeholder="Select Date" />
-                        </div>
-                        <div class="form-group col-12">
-                            <input type="text" class="time-pick form-control" name="time" id="time-pick"
-                                placeholder="Select Time" />
-                        </div>
-                        <div class="btn-group justify-content-center justify-content-lg-start">
-                            <button class="th-btn style4 fw-btn">Booking Now</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <div class="shape-mockup jump" data-top="0%" data-right="0%">
-        <img src="assets/img/shape/flower_1_11.png" alt="shape" />
+        <img src="{{ asset('assets/img/shape/flower_1_11.png') }}" alt="shape" />
     </div>
 </section>
 @endsection

@@ -10,8 +10,7 @@
                                         width="150" alt="Caro Hair Braiding" /></a>
                             </div>
                             <p class="about-text">
-                                Centric applications productize front end portals visualize
-                                front end.
+
                             </p>
                             <div class="th-widget-about">
                                 <p class="footer-info">

@@ -38,7 +38,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="/"><img height="81" width="100" src="{{ asset('assets/img/logo.png') }}"
+                            <a href="/"><img height="80" width="140" src="{{ asset('assets/img/logo.png') }}"
                                              alt="caro hair braiding"></a>
                         </div>
                     </div>
@@ -67,7 +67,6 @@
                         </nav>
                         <button class="th-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
                     </div>
-
                 </div>
             </div>
         </div>

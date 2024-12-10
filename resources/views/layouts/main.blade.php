@@ -12,6 +12,9 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/favicon-16x16.png') }}" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
+
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;700&amp;display=swap"
@@ -26,6 +29,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     </head>
 <body class="bg-black2">
+@include('sweetalert::alert')
     <div class="preloader">
         <div class="preloader-inner">
             <img src="{{ asset('assets/img/logo.png') }}" alt="Caro Hair Braiding" height="250" width="250" /> <span class="loader"></span>
@@ -96,11 +100,6 @@
             </div>
         </div>
     </div>
-    <div class="popup-search-box d-none d-lg-block">
-        <form action="#">
-            <input type="text" placeholder="What are you looking for?" />
-        </form>
-    </div>
     @include('partials.header')
 
     @yield('content')
@@ -122,6 +121,8 @@
     <script src=" {{ asset('assets/js/tilt.min.js') }}"></script>
     <script src=" {{ asset('assets/js/wow.min.js') }}"></script>
     <script src=" {{ asset('assets/js/main.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>

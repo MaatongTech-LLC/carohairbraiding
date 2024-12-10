@@ -25,18 +25,18 @@
                 <div class="col-xl-6">
                     <div class="img-box4">
                         <div class="img4 wow fadeInUp">
-                            <img class="tilt-active" src="assets/img/normal/about_3_1.jpg" alt="About" />
+                            <img class="tilt-active" src="{{ asset('assets/img/normal/about_3_1.jpg') }}" alt="About" />
                         </div>
                         <div class="img5 wow fadeInRight">
                             <img height="274" width="350" style="object-fit: cover; height: 575px;" class="tilt-active"
-                                 src="assets/img/normal/about_3_2.jpg" alt="About" />
+                                 src="{{ asset('assets/img/normal/about_3_2.jpg') }}" alt="About" />
                         </div>
                         <div class="about-shape">
-                            <img src="assets/img/normal/about_3_3.jpg" alt="About" />
+                            <img src="{{ asset('assets/img/normal/about_3_3.jpg') }}" alt="About" />
                         </div>
                         <div class="about-company-since-wrap">
                             <div class="about-icon">
-                                <img src="assets/img/logo.png" height="70" width="70" alt="img" />
+                                <img src="{{ asset('assets/img/logo.png') }}" height="80" width="80" alt="logo" />
                             </div>
                             <div class="about-tag">
                                 <span class="about-anime">Company Since 2019</span>
@@ -86,18 +86,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="btn-group mt-45">
-                            <a href="/about" class="th-btn">Learn More</a>
-                            <!-- <div class="about-profile">
-                            <div class="about-avater">
-                                <img src="assets/img/shape/about-thumb_1.png" alt="about"/>
-                            </div>
-                            <div class="media-body">
-                                <h5 class="title">Phillips Lewis</h5>
-                                <span class="desig">CEO of Barber Shop</span>
-                            </div>
-                        </div> -->
-                        </div>
                     </div>
                 </div>
             </div>
@@ -108,7 +96,7 @@
             <div class="choose-title-area">
                 <div class="title-area mb-40 text-center">
                     <span class="sub-title style2">Why Choose Us</span>
-                    <img src="assets/img/theme-img/title_shape_1.svg" alt="" />
+                    <img src="{{ asset('assets/img/theme-img/title_shape_1.svg') }}" alt="" />
                     <h2 class="sec-title">
                         Your Journey to Inner Harmony Starts Here Choose Our Salon &
                         Wellness
@@ -133,8 +121,8 @@
                     </div>
                 </div>
                 <div class="col-xl-7">
-                    <div class="wow fadeInRight overflow-hidden" style="border-top-right-radius: 45px; border-bottom-left-radius: 45px;">
-                        <img class="img-fluid h-50" src="{{ asset('assets/img/normal/salon.jpg') }}" alt="why-us-image" />
+                    <div class="wow fadeInRight overflow-hidden" style=" padding: 0; border-top-right-radius: 85px; border-bottom-left-radius: 85px;">
+                        <img style="height: 100%; width: 80%; object-fit: cover;" src="{{ asset('assets/img/normal/salon.jpg') }}" alt="why-us-image" />
                     </div>
                 </div>
             </div>
