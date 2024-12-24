@@ -28,6 +28,9 @@ class ClientsDataTable extends DataTable
             ->editColumn('email', function(User $client) {
                 return $client->email;
             })
+            ->editColumn('phone', function(User $client) {
+                return $client->getPhone();
+            })
             ->editColumn('created_at', function(User $client) {
                 return $client->created_at->format('Y-m-d');
             })
@@ -75,6 +78,7 @@ class ClientsDataTable extends DataTable
         return [
             Column::make('name')->title('Name'),
             Column::make('email')->title('Email'),
+            Column::make('phone')->title('Phone'),
             Column::make('created_at')->title('Joined On'),
             Column::computed('action')
                 ->addClass('text-end text-nowrap')

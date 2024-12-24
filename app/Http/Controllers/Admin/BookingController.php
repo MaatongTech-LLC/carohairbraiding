@@ -11,7 +11,7 @@ class BookingController extends Controller
 {
     public function calendar()
     {
-        $bookings = Booking::with('service')->get();
+        $bookings = Booking::with(['service', 'user'])->get();
 
         $bookings = $bookings->map(function ($booking) {
             // Fusionner la date et l'heure de début
@@ -26,7 +26,8 @@ class BookingController extends Controller
             $booking->start = $start->format('Y-m-d\TH:i:s'); // Format ISO8601
             $booking->end = $end->format('Y-m-d\TH:i:s'); // Format ISO8601
 
-            $booking->title = $booking->service->name;
+            $booking->title = $booking->service->name . ' (' . $booking->user->name . ')';
+            $booking->url = route('admin.booking.show', $booking->id);
 
             return $booking;
         });

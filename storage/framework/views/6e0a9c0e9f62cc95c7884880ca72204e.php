@@ -48,7 +48,7 @@
                             <div class="col-12 form-group"><input id="email" name="email" type="email" class="form-control"
                                                                   placeholder="Email Address"
                                                                   value="<?php echo e($_GET['email'] ?? ''); ?>" required>
-                                <input type="tel" class="form-control" name="phone" placeholder="Phone number"
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number"
                                        value="<?php echo e($_GET['phone'] ?? ''); ?>" required>
                             </div>
                         </div>
@@ -116,8 +116,8 @@
                                                class="input-radio"
                                                name="payment_method" checked required>
                                         <input type='hidden' name='stripeToken' id='stripe-token-id'>
-                                        <label for="payment_method_stripe">Credit Card</label>
-                                        <div class="payment_box payment_method_stripe"><p>Pay with your credit card.</p>
+                                        <label for="payment_method_stripe">Credit/Debit Card</label>
+                                        <div class="payment_box payment_method_stripe"><p>Pay with your credit or debit card.</p>
                                         </div>
                                     </li>
                                     <li class="wc_payment_method payment_method_paypal"><input
@@ -173,6 +173,7 @@
                         <input type="hidden" name="amount" value="<?php echo e($pay_price); ?>">
                         <input type="hidden" name="email" id="customer_email">
                         <input type="hidden" name="full_name" id="customer_name">
+                        <input type="hidden" name="phone" id="customer_phone">
                         <input type="hidden" name="pay_price" value="<?php echo e($_GET['pay_price']); ?>">
                         <input type="hidden" name="date" value="<?php echo e($_GET['date']); ?>">
                         <input type="hidden" name="time" value="<?php echo e($_GET['time']); ?>">
@@ -224,8 +225,12 @@
                 const fullName = document.getElementById('full_name');
                 const customerName = document.getElementById('customer_name');
 
+                const phone = document.getElementById('phone');
+                const customerPhone = document.getElementById('customer_phone');
+
                 customerEmail.value = email.value;
                 customerName.value = fullName.value;
+                customerPhone.value = phone.value;
 
                 console.log(customerEmail.value);
                 stripePaymentModal.show();

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'role',
+        'phone',
         'password',
     ];
 
@@ -50,5 +51,20 @@ class User extends Authenticatable
     public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function getPhone()
+    {
+        if (!$this->phone) {
+            return null;
+        }
+
+        $phone = preg_replace('/\D/', '', $this->phone);
+
+        if (strlen($phone) == 10) {
+            return '+1 ' . substr($phone, 0, 3) . '-' . substr($phone, 3, 3) . '-' . substr($phone, 6);
+        }
+
+        return null;
     }
 }

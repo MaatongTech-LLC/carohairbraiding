@@ -31,12 +31,12 @@
                         <div class="row">
                             <input type="hidden" name="amount" value="{{ $pay_price }}">
                             <div class="col-md-12 form-group">
-                                <input type="text" name="full_name" class="form-control" placeholder="Full Name"
+                                <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Full Name"
                                        value="{{ $_GET['full_name'] ?? '' }}" required>
                             </div>
 
                             <div class="col-12 form-group">
-                                <input type="text" id="full_name" name="city" class="form-control" placeholder="Town / City" value=""
+                                <input type="text"  name="city" class="form-control" placeholder="Town / City" value=""
                                        required>
                             </div>
                             <div class="col-md-6 form-group">
@@ -49,7 +49,7 @@
                             <div class="col-12 form-group"><input id="email" name="email" type="email" class="form-control"
                                                                   placeholder="Email Address"
                                                                   value="{{ $_GET['email'] ?? '' }}" required>
-                                <input type="tel" class="form-control" name="phone" placeholder="Phone number"
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number"
                                        value="{{ $_GET['phone'] ?? '' }}" required>
                             </div>
                         </div>
@@ -117,8 +117,8 @@
                                                class="input-radio"
                                                name="payment_method" checked required>
                                         <input type='hidden' name='stripeToken' id='stripe-token-id'>
-                                        <label for="payment_method_stripe">Credit Card</label>
-                                        <div class="payment_box payment_method_stripe"><p>Pay with your credit card.</p>
+                                        <label for="payment_method_stripe">Credit/Debit Card</label>
+                                        <div class="payment_box payment_method_stripe"><p>Pay with your credit or debit card.</p>
                                         </div>
                                     </li>
                                     <li class="wc_payment_method payment_method_paypal"><input
@@ -174,6 +174,7 @@
                         <input type="hidden" name="amount" value="{{ $pay_price }}">
                         <input type="hidden" name="email" id="customer_email">
                         <input type="hidden" name="full_name" id="customer_name">
+                        <input type="hidden" name="phone" id="customer_phone">
                         <input type="hidden" name="pay_price" value="{{ $_GET['pay_price'] }}">
                         <input type="hidden" name="date" value="{{ $_GET['date'] }}">
                         <input type="hidden" name="time" value="{{ $_GET['time'] }}">
@@ -225,8 +226,12 @@
                 const fullName = document.getElementById('full_name');
                 const customerName = document.getElementById('customer_name');
 
+                const phone = document.getElementById('phone');
+                const customerPhone = document.getElementById('customer_phone');
+
                 customerEmail.value = email.value;
                 customerName.value = fullName.value;
+                customerPhone.value = phone.value;
 
                 console.log(customerEmail.value);
                 stripePaymentModal.show();

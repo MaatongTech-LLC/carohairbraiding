@@ -76,9 +76,6 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('scripts'); ?>
-    <!-- Include Mobiscroll -->
-    <script src="js/mobiscroll.javascript.min.js"></script>
-    <link href="css/mobiscroll.javascript.min.css" rel="stylesheet" type="text/css">
 
     <script>
 

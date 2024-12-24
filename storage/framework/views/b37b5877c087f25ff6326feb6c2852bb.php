@@ -51,7 +51,7 @@
 
                         <div class="mt-2">
                             <h6 class="mb-1">Contact:</h6>
-                            <p><a href="#" class="text-body">-</a></p>
+                            <p><a href="tel:1<?php echo e($client->phone); ?>" class="text-body"><?php echo e($client->getPhone()); ?></a></p>
                         </div>
                     </div>
                 </div>

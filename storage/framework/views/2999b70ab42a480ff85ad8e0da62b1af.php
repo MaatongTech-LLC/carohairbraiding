@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>" />
     </head>
 <body class="bg-black2">
+
 <?php echo $__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="preloader">
         <div class="preloader-inner">

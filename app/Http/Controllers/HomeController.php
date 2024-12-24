@@ -179,6 +179,7 @@ class HomeController extends Controller
             'amount' => 'required|numeric',
             'pay_price' => 'required',
             'full_name' => 'required',
+            'phone' => 'required',
             'email' => 'required',
             'date' => 'required',
             'time' => 'required',
@@ -218,18 +219,13 @@ class HomeController extends Controller
 
     private function createOrGetClient(array $data)
     {
-        $user = null;
-        if (User::where('email', $data['email'])->exists()) {
-            $user = User::where('email', $data['email'])->first();
-        } else {
-            $user = User::create([
-                'name' => $data['full_name'],
-                'email' => $data['email'],
-                'password' => Hash::make(rand(100000, 999999)),
-                'role' => 'client'
-            ]);
-        }
-
+        $user = User::firstOrCreate([
+            'name' => $data['full_name'],
+            'email' => $data['email'],
+            'password' => Hash::make(rand(100000, 999999)),
+            'phone' => $data['phone'],
+            'role' => 'client'
+        ]);
         return $user->id;
 
     }

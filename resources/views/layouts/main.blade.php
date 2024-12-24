@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     </head>
 <body class="bg-black2">
+
 @include('sweetalert::alert')
     <div class="preloader">
         <div class="preloader-inner">

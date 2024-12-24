@@ -61,16 +61,11 @@
                 selectHelper: true,
                 displayEventTime: true,
                 displayEventEnd: true,
+                slotMinTime: '8:00:00',
+                slotMaxTime: '24:00:00',
                 eventColor: '#BF9651',
                 events: events,
-                eventClick: function(info) {
-                    Swal.fire({
-                        title: "Good job!",
-                        text: info.event.title,
-                        icon: "info"
-                    });
 
-                }
             });
             calendar.render();
         });
