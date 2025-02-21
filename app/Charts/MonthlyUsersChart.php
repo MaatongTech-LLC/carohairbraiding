@@ -21,9 +21,8 @@ class MonthlyUsersChart
      * */
     public function build()
     {
-        $usersByMonth = \App\Models\User::selectRaw('MONTH(created_at) as month, count(*) as total')
-            ->whereYear('created_at', now()->year)
-            ->where('role', 'client')
+        $usersByMonth = \App\Models\Booking::selectRaw('MONTH(date) as month, count(*) as total')
+            ->whereYear('date', now()->year)
             ->groupBy('month')
             ->orderBy('month')
             ->get();
@@ -33,8 +32,8 @@ class MonthlyUsersChart
 
 
         return $this->chart->lineChart()
-            ->setTitle('Customers during this year ' . date('Y'))
-            ->addData('Registered customers', $userCounts->toArray())
+            ->setTitle('Bookings during this year ' . date('Y'))
+            ->addData('Bookings', $userCounts->toArray())
             ->setColors(['#BF9751'])
             ->setFontFamily('Inter, sans-serif, Arial')
             ->setXAxis($months->map(function ($month) {

@@ -4,6 +4,7 @@ namespace App\DataTables;
 
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Illuminate\Support\Carbon;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
@@ -23,7 +24,7 @@ class ServicesDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->rawColumns(['user'])
-            ->editColumn('service', function(Service $service) {
+            ->editColumn('name', function(Service $service) {
                 return view('admin.services.columns._service', compact('service'));
             })
             ->editColumn('type', function(Service $service) {
@@ -32,11 +33,11 @@ class ServicesDataTable extends DataTable
             ->editColumn('price', function(Service $service) {
                 return '$' .  $service->price;
             })
-            ->editColumn('deposit_price', function(Service $service) {
-                return '$' .  $service->deposit_price;
+            ->addColumn('category', function(Service $service) {
+                return $service->category->name;
             })
             ->editColumn('duration', function(Service $service) {
-                return $service->duration;
+                return Carbon::parse($service->duration)->format('H:i');
             })
             ->editColumn('created_at', function(Service $service) {
                 return $service->created_at->diffForHumans();
@@ -52,7 +53,7 @@ class ServicesDataTable extends DataTable
      */
     public function query(Service $model): QueryBuilder
     {
-        return $model->newQuery()->latest();
+        return $model->newQuery()->with('category')->latest();
     }
 
     /**
@@ -83,10 +84,10 @@ class ServicesDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('service')->addClass('d-flex align-items-center')->title('Service'),
+            Column::make('name')->addClass('d-flex align-items-center')->title('Service')->searchable(true),
             Column::make('type')->title('Type'),
             Column::make('price')->title('Price'),
-            Column::make('deposit_price')->title('Deposit Price'),
+            Column::make('category')->title('Category'),
             Column::make('duration')->title('Duration'),
             Column::computed('actions')
                   ->exportable(false)

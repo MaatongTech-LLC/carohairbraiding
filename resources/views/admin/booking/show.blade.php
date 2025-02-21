@@ -45,6 +45,10 @@
                             </p>
                         </div>
                         <div class="mt-2">
+                            <h6 class="mb-1">Payment Method:</h6>
+                            <p>{{ $booking->payment->method  }}</p>
+                        </div>
+                        <div class="mt-2">
                             <h6 class="mb-1">Client Name/Email:</h6>
                             <p><a href="{{ route('admin.clients.show', $booking->user->id) }}">{{ $booking->user->name }}/{{ $booking->user->email }}</a></p>
                         </div>

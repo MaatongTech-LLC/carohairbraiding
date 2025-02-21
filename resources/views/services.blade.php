@@ -26,6 +26,20 @@
                                                                 alt="" /></span>
                     <h2 class="sec-title text-white">Discover the amazing haircuts you can get with us</h2>
                 </div>
+
+                <div class="d-flex flex-wrap align-items-center gap-1">
+                    <a href="{{ route('services') }}" class="my-tab-btn {{ request('category_id') == null ? 'active' : '' }} mb-2">
+                        ALL
+                    </a>
+
+                    @foreach($categories as $category)
+                        <a href="{{ route('services', ['category_id' => $category]) }}" class="my-tab-btn {{ request('category_id') == $category->id ? 'active' : '' }} mb-2">
+                            {{ ucwords($category->name) }}
+                        </a>
+                    @endforeach
+
+                    <span class="indicator" style="--height-set: 46px; --width-set: 56.9219px; --pos-y: 483.484375px; --pos-x: 19.5625px;"></span>
+                </div>
                 @php
                     $directory = public_path('assets/img/services');
                     $images = array_map(function($file) {
@@ -36,7 +50,7 @@
                     }, glob($directory . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE));
                 @endphp
 
-                @foreach($services as $service)
+                @forelse($services as $service)
                     <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                         <div>
                             <div class="service-box">
@@ -59,7 +73,13 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <h4 class="text-center sec-title text-white">No Service Yet</h4>
+                @endforelse
+
+                <div class="mt-4 pt-5">
+                    {{ $services->links('vendor.pagination.default', ['elements' => $services]) }}
+                </div>
 
             </div>
         </div>
@@ -90,3 +110,24 @@
         </div>
     </div>--}}
 @endsection
+
+@push('styles')
+    <style>
+        .my-tab-btn {
+            background-color: transparent;
+            color: var(--theme-color);
+            border: 1px solid var(--theme-color);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 20px;
+            margin-left: 10px;
+            -webkit-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .my-tab-btn:hover, .my-tab-btn.active {
+            background-color: var(--theme-color);
+            color: #FFF;
+        }
+    </style>
+@endpush

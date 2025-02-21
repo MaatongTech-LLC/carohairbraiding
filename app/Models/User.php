@@ -23,6 +23,7 @@ class User extends Authenticatable
         'role',
         'phone',
         'password',
+        'profile_img'
     ];
 
     /**
@@ -65,6 +66,6 @@ class User extends Authenticatable
             return '+1 ' . substr($phone, 0, 3) . '-' . substr($phone, 3, 3) . '-' . substr($phone, 6);
         }
 
-        return null;
+        return $this->phone;
     }
 }

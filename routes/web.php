@@ -12,8 +12,9 @@ Route::get('/services', [HomeController::class, 'services'])->name('services');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/booking/{id}', [HomeController::class, 'booking'])->name('booking');
 
-
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
+Route::get('/categories', [HomeController::class, 'categories'])->name('categories');
+
 
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::post('/checkout/{id}', [HomeController::class, 'checkoutPay'])->name('checkout.pay');

@@ -30,12 +30,12 @@
                         <div class="row">
                             <input type="hidden" name="amount" value="<?php echo e($pay_price); ?>">
                             <div class="col-md-12 form-group">
-                                <input type="text" name="full_name" class="form-control" placeholder="Full Name"
+                                <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Full Name"
                                        value="<?php echo e($_GET['full_name'] ?? ''); ?>" required>
                             </div>
 
                             <div class="col-12 form-group">
-                                <input type="text" id="full_name" name="city" class="form-control" placeholder="Town / City" value=""
+                                <input type="text"  name="city" class="form-control" placeholder="Town / City" value=""
                                        required>
                             </div>
                             <div class="col-md-6 form-group">
@@ -82,9 +82,9 @@
                                 </td>
                                 <td data-title="Date"><span class="cart-productname"><?php echo e($time); ?></span>
                                 </td>
-                                <td data-title="Price"><span class="amount"><bdi><span>$</span><?php echo e($pay_price); ?></bdi></span>
+                                <td data-title="Price"><span class="amount"><bdi><span>$</span><?php echo e(}}</bdi></span>
                                 </td>
-                                <td data-title="Total"><span class="amount"><bdi><span>$</span><?php echo e($pay_price); ?></bdi></span>
+                                <td data-title="Total"><span class="amount"><bdi><span>$</span>{{ $pay_price); ?></bdi></span>
                                 </td>
                             </tr>
                             </tbody>

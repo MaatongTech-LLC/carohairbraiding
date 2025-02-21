@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\ServicesDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -35,7 +36,9 @@ class ServiceController extends Controller
 
     public function create()
     {
-        return view('admin.services.create');
+        $categories = Category::all();
+
+        return view('admin.services.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -44,8 +47,9 @@ class ServiceController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
+            'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'deposit_price' => 'required|numeric',
+            'deposit_price' => 'nullable|numeric',
             'type' => 'required',
             'duration' => 'required',
         ]);
@@ -64,8 +68,9 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $service = Service::findOrFail($id);
+        $categories = Category::all();
 
-        return view('admin.services.edit', compact('service'));
+        return view('admin.services.edit', compact('service', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -74,8 +79,9 @@ class ServiceController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
+            'category_id' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'deposit_price' => 'required|numeric',
+            'deposit_price' => 'nullable|numeric',
             'type' => 'required',
             'duration' => 'required',
         ]);

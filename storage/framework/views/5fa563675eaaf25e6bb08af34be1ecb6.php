@@ -52,7 +52,13 @@
                                     <a class="<?php echo e(request()->routeIs('about') ? 'active' : ''); ?>" href="/about">About us</a>
                                 </li>
                                 <li>
+                                    <a class="<?php echo e(request()->routeIs('categories') ? 'active' : ''); ?>" href="/categories">Categories</a>
+                                </li>
+                                <li>
                                     <a class="<?php echo e(request()->routeIs('services') ? 'active' : ''); ?>" href="/services">Services</a>
+                                </li>
+                                <li>
+                                    <a class="<?php echo e(request()->routeIs('gallery') ? 'active' : ''); ?>" href="/gallery">Gallery</a>
                                 </li>
                                
                                 

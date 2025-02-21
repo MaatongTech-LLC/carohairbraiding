@@ -27,6 +27,8 @@
         <link rel="stylesheet" href="{{ asset('assets/css/jquery.flipster.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/css/jquery.datetimepicker.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+
+        @stack('styles')
     </head>
 <body class="bg-black2">
 
@@ -68,6 +70,7 @@
             </div>
         </div>
     </div>
+{{--
     <div class="sidemenu-wrapper shopping-cart d-none d-lg-block">
         <div class="sidemenu-content">
             <div class="widget woocommerce widget_shopping_cart">
@@ -101,6 +104,7 @@
             </div>
         </div>
     </div>
+--}}
     @include('partials.header')
 
     @yield('content')

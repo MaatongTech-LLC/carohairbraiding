@@ -26,6 +26,21 @@
                                                                 alt="" /></span>
                     <h2 class="sec-title text-white">Discover the amazing haircuts you can get with us</h2>
                 </div>
+
+                <div class="d-flex flex-wrap align-items-center gap-1">
+                    <a href="<?php echo e(route('services')); ?>" class="my-tab-btn <?php echo e(request('category_id') == null ? 'active' : ''); ?> mb-2">
+                        ALL
+                    </a>
+
+                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <a href="<?php echo e(route('services', ['category_id' => $category])); ?>" class="my-tab-btn <?php echo e(request('category_id') == $category->id ? 'active' : ''); ?> mb-2">
+                            <?php echo e(ucwords($category->name)); ?>
+
+                        </a>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                    <span class="indicator" style="--height-set: 46px; --width-set: 56.9219px; --pos-y: 483.484375px; --pos-x: 19.5625px;"></span>
+                </div>
                 <?php
                     $directory = public_path('assets/img/services');
                     $images = array_map(function($file) {
@@ -36,7 +51,7 @@
                     }, glob($directory . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE));
                 ?>
 
-                <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__empty_1 = true; $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                         <div>
                             <div class="service-box">
@@ -60,7 +75,14 @@
                             </div>
                         </div>
                     </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                    <h4 class="text-center sec-title text-white">No Service Yet</h4>
+                <?php endif; ?>
+
+                <div class="mt-4 pt-5">
+                    <?php echo e($services->links('vendor.pagination.default', ['elements' => $services])); ?>
+
+                </div>
 
             </div>
         </div>
@@ -74,5 +96,26 @@
 
 
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('styles'); ?>
+    <style>
+        .my-tab-btn {
+            background-color: transparent;
+            color: var(--theme-color);
+            border: 1px solid var(--theme-color);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 20px;
+            margin-left: 10px;
+            -webkit-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .my-tab-btn:hover, .my-tab-btn.active {
+            background-color: var(--theme-color);
+            color: #FFF;
+        }
+    </style>
+<?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Loic\Desktop\Maatong Group\Client Projects\Caro Hair Braiding\carohairbraiding\resources\views/services.blade.php ENDPATH**/ ?>

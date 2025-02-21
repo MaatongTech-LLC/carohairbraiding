@@ -347,7 +347,7 @@
                 <div class="pricing-form">
                     <div class="title-area mb-40 text-center">
                         <h3 class="sec-title mb-0 text-white">Booking Your Seat</h3>
-                        <img src="assets/img/theme-img/title_shape_2.svg" alt="" />
+                        <img src="<?php echo e(asset('assets/img/theme-img/title_shape_2.svg')); ?>" alt="" />
                     </div>
                     <form action="<?php echo e(route('checkout')); ?>">
                         <div class="row">
@@ -399,11 +399,11 @@
                             </div>
                             <div class="form-group col-12">
                                 <input type="text" class="date-pick form-control" name="date" id="date-pick"
-                                       placeholder="Select Date" />
+                                       placeholder="Select Date" autocomplete="off" required/>
                             </div>
                             <div class="form-group col-12">
                                 <input type="text" class="time-pick form-control" name="time" id="time-pick"
-                                       placeholder="Select Time" />
+                                       placeholder="Select Time" autocomplete="off" required/>
                             </div>
                             <div class="btn-group justify-content-center justify-content-lg-start">
                                 <button type="submit" class="th-btn style4 fw-btn">Booking Now</button>

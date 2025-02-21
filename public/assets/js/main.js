@@ -387,9 +387,12 @@
     }))), e(".date-pick").datetimepicker({
         timepicker: !1,
         datepicker: !0,
-        format: "d-m-y",
+        format: "Y-m-d",
+        startDate: new Date(),
+        maxDate: new Date().setDate(new Date().getDate() +30),
+        minDate: 0,
         step: 10
-    }), e(".time-pick").datetimepicker({datepicker: !1, format: "H:i", step: 30});
+    }), e(".time-pick").datetimepicker({datepicker: !1, format: "H:i", step: 30, minTime: '9:00', maxTime: '18:00'});
     new WOW({boxClass: "wow", animateClass: "animated", offset: 0, mobile: !0, live: !0});
     (new WOW).init(), e.fn.asTab = function (t) {
         var s = e.extend({sliderTab: !1, tabButton: "button"}, t);

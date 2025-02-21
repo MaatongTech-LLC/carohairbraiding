@@ -83,7 +83,7 @@
                                 </td>
                                 <td data-title="Date"><span class="cart-productname">{{ $time }}</span>
                                 </td>
-                                <td data-title="Price"><span class="amount"><bdi><span>$</span>{{ $pay_price }}</bdi></span>
+                                <td data-title="Price"><span class="amount"><bdi><span>$</span>{{   }}</bdi></span>
                                 </td>
                                 <td data-title="Total"><span class="amount"><bdi><span>$</span>{{ $pay_price }}</bdi></span>
                                 </td>

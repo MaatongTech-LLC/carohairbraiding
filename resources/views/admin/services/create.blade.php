@@ -28,6 +28,20 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6 form-group">
+                                    <label for="category_id">Category</label>
+                                    <select name="category_id" id="category_id" class="form-select">
+                                        <option label="Select a category" selected disabled></option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 form-group">
                                     <label for="price">Price($)</label>
                                     <input type="number" name="price" id="price" class="form-control" placeholder="Ex: 89" required>
                                     @error('price')
@@ -36,7 +50,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6 form-group">
+                               {{-- <div class="col-md-6 form-group">
                                     <label for="deposit_price">Deposit Price($)</label>
                                     <input type="number" name="deposit_price" id="deposit_price" class="form-control" placeholder="Ex: 20" required>
                                     @error('deposit_price')
@@ -44,10 +58,10 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
+                                </div>--}}
                                 <div class="col-md-6">
                                     <label for="duration">Duration</label>
-                                    <input type="time" name="duration" id="duration" class="form-control" placeholder="Ex: 2:30" required>
+                                    <input type="text" name="duration" id="duration" class="form-control html-duration-picker" data-hide-seconds placeholder="Ex: 2:30" required>
                                     @error('duration')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -99,4 +113,7 @@
 @endsection
 
 @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/html-duration-picker@latest/dist/html-duration-picker.min.js"></script>
+
+
 @endpush

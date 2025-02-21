@@ -10,7 +10,7 @@
             <img src="<?php echo e(asset('assets/img/logo.png')); ?>" height="150" width="150" alt="">
             <!--logo End-->
         </a>
-        <h2 class="mb-2 text-center">Sign In</h2>
+        <h2 class="mb-2 text-white text-center">Sign In</h2>
         <p class="text-center">Login to stay connected.</p>
         <form action="<?php echo e(route('admin.login.submit')); ?>" method="POST">
             <?php echo csrf_field(); ?>

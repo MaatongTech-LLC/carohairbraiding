@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,13 +29,13 @@
     </div>
 </div>
 <!-- loader END -->
-<div class="wrapper">
-    <section class="login-content">
-        <div class="row m-0 align-items-center bg-white vh-100">
+<div class="wrapper bg-dark">
+    <section class="login-content ">
+        <div class="row m-0 align-items-center bg-dark vh-100">
             <div class="col-md-6">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <div class="card card-transparent shadow-none d-flex justify-content-center mb-0 auth-card">
+                        <div class="card bg-dark card-transparent shadow-none d-flex justify-content-center mb-0 auth-card">
                             <?php if($errors->any()): ?>
                                 <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="alert alert-bottom alert-danger alert-dismissible fade show" role="alert">

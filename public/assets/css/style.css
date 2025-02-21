@@ -18949,7 +18949,7 @@ span.select2-selection.select2-selection--single:focus {
 
 .filter-menu.style2 .tab-btn {
     padding: 4px 18px;
-    border: 1px solid var(--theme-color);
+    border: 1px solid var(--theme-color);;
     color: var(--theme-color)
 }
 
@@ -20279,7 +20279,7 @@ span.select2-selection.select2-selection--single:focus {
     border: 1px solid var(--smoke-color3);
     background: var(--white-color);
     min-width: 283px;
-    min-height: 400px;
+    /*min-height: 400px;*/
     z-index: 2
 }
 
@@ -20374,7 +20374,7 @@ span.select2-selection.select2-selection--single:focus {
     position: absolute;
     right: -23%;
     top: 36%;
-    z-index: -1
+    z-index: 10;
 }
 
 @media (max-width: 1299px) {

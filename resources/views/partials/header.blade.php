@@ -52,7 +52,13 @@
                                     <a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="/about">About us</a>
                                 </li>
                                 <li>
+                                    <a class="{{ request()->routeIs('categories') ? 'active' : '' }}" href="/categories">Categories</a>
+                                </li>
+                                <li>
                                     <a class="{{ request()->routeIs('services') ? 'active' : '' }}" href="/services">Services</a>
+                                </li>
+                                <li>
+                                    <a class="{{ request()->routeIs('gallery') ? 'active' : '' }}" href="/gallery">Gallery</a>
                                 </li>
                                {{-- <li>
                                     <a class="{{ request()->routeIs('shop') ? 'active' : '' }}" href="/shop">Shop</a>

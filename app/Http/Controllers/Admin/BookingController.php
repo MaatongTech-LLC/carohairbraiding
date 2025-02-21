@@ -52,4 +52,24 @@ class BookingController extends Controller
 
         return view('admin.booking.show', compact('booking'));
     }
+
+    public function get()
+    {
+        $bookings = Booking::with(['service', 'user', 'payment'])->where('status', 'unread')->get();
+
+
+        return response()->json($bookings);
+    }
+
+    public function  readAll()
+    {
+        $bookings = Booking::where('status', 'unread')->get();
+
+        foreach ($bookings as $booking) {
+            $booking->status = 'read';
+            $booking->save();
+        }
+
+        return redirect()->back();
+    }
 }

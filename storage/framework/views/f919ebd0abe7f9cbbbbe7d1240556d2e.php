@@ -46,6 +46,10 @@
                             </p>
                         </div>
                         <div class="mt-2">
+                            <h6 class="mb-1">Payment Method:</h6>
+                            <p><?php echo e($booking->payment->method); ?></p>
+                        </div>
+                        <div class="mt-2">
                             <h6 class="mb-1">Client Name/Email:</h6>
                             <p><a href="<?php echo e(route('admin.clients.show', $booking->user->id)); ?>"><?php echo e($booking->user->name); ?>/<?php echo e($booking->user->email); ?></a></p>
                         </div>

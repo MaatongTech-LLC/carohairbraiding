@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->enum('type', ['women', 'men', 'kids', 'any'])->default('any');
-            $table->time('duration');
+            $table->time('duration')->default("1:00");
             $table->string('image');
-            $table->decimal('deposit_price', 8, 2);
+            $table->decimal('deposit_price', 8, 2)->default(20);
             $table->decimal('price', 8, 2);
+            $table->enum('tag', ['auto', 'set'])->default('set');
             $table->timestamps();
         });
     }

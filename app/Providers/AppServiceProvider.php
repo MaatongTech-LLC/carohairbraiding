@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\BookingConfirmedEvent;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Event::listen(
+            BookingConfirmedEvent::class,
+            \App\Listeners\BookingConfirmedListener::class
+        );
+        Event::listen(
+            BookingConfirmedEvent::class,
+            \App\Listeners\BookingConfirmedListener::class
+        );
     }
 }

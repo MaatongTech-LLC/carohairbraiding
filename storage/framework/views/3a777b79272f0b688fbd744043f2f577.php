@@ -34,6 +34,28 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
                                 <div class="col-md-6 form-group">
+                                    <label for="category_id">Category</label>
+                                    <select name="category_id" id="category_id" class="form-select">
+                                        <option label="Select a category" disabled></option>
+                                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                    <?php $__errorArgs = ['category_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <div class="invalid-feedback">
+                                        <?php echo e($message); ?>
+
+                                    </div>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                                <div class="col-md-6 form-group">
                                     <label for="price">Price($)</label>
                                     <input type="number" name="price" id="price" class="form-control" placeholder="Ex: 89" required>
                                     <?php $__errorArgs = ['price'];
@@ -50,26 +72,10 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="deposit_price">Deposit Price($)</label>
-                                    <input type="number" name="deposit_price" id="deposit_price" class="form-control" placeholder="Ex: 20" required>
-                                    <?php $__errorArgs = ['deposit_price'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                        <div class="invalid-feedback">
-                                            <?php echo e($message); ?>
-
-                                        </div>
-                                    <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                </div>
+                               
                                 <div class="col-md-6">
                                     <label for="duration">Duration</label>
-                                    <input type="time" name="duration" id="duration" class="form-control" placeholder="Ex: 2:30" required>
+                                    <input type="text" name="duration" id="duration" class="form-control html-duration-picker" data-hide-seconds placeholder="Ex: 2:30" required>
                                     <?php $__errorArgs = ['duration'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -153,6 +159,7 @@ unset($__errorArgs, $__bag); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('scripts'); ?>
+    <script src="https://cdn.jsdelivr.net/npm/html-duration-picker@latest/dist/html-duration-picker.min.js"></script>
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('admin.layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Loic\Desktop\Maatong Group\Client Projects\Caro Hair Braiding\carohairbraiding\resources\views/admin/services/create.blade.php ENDPATH**/ ?>

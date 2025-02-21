@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\BookingConfirmedEvent;
 use App\Models\Booking;
+use App\Models\Category;
 use App\Models\Payment;
 use App\Models\Service;
 use App\Models\User;
@@ -18,6 +20,8 @@ use Stripe\Stripe;
 
 class HomeController extends Controller
 {
+    public $hul;
+
     public function index()
     {
         $services = Service::all();
@@ -34,11 +38,27 @@ class HomeController extends Controller
         return view('about');
     }
 
-    public function services()
+    public function services(Request $request)
     {
-        $services = Service::all();
+        if ($request->has('category_id')) {
+            $services = Service::where('category_id', $request->category_id)->latest()->paginate(9);
+        } else {
+            $services = Service::latest()->paginate(9);
+        }
 
-        return view('services', compact('services'));
+        $categories = Category::all();
+
+        return view('services', compact('services', 'categories'));
+    }
+
+    public function categories()
+    {
+        $categories = Category::with(['services' => function ($query) {
+            $query->select('category_id', DB::raw('MIN(price) as min_price'))
+                ->groupBy('category_id');
+        }])->latest()->simplePaginate(4);
+
+        return view('categories', compact('categories'));
     }
 
     public function contact()
@@ -60,6 +80,12 @@ class HomeController extends Controller
 
     public function checkout(Request $request)
     {
+        $request->validate([
+            'pay_price' => 'required',
+            'date' => 'required|after:yesterday',
+            'time' => 'required',
+        ]);
+
         if ($request->service_id) {
             $id = $request->service_id;
         } else {
@@ -68,7 +94,7 @@ class HomeController extends Controller
 
         $service = Service::findOrFail($id);
 
-        if($request->pay_price) $pay_price = $request->pay_price === 'deposit_price'  ? $service->deposit_price : $service->price;
+        if ($request->pay_price) $pay_price = $request->pay_price === 'deposit' ? $service->deposit_price : $service->price;
         if ($request->date) $date = $request->date;
         if ($request->time) $time = $request->time;
 
@@ -77,8 +103,7 @@ class HomeController extends Controller
 
     public function checkoutPay(Request $request, $id)
     {
-        if ($request->payment_method === 'paypal')
-        {
+        if ($request->payment_method === 'paypal') {
             $data = $request->validate([
                 'full_name' => 'required',
                 'phone' => 'required',
@@ -86,7 +111,7 @@ class HomeController extends Controller
                 'city' => 'required',
                 'state' => 'required',
                 'amount' => 'required',
-                'date' => 'required',
+                'date' => 'required|date_format:Y-m-d|after:yesterday',
                 'time' => 'required',
                 'pay_price' => 'required',
                 'payment_method' => 'required',
@@ -96,7 +121,7 @@ class HomeController extends Controller
             $provider->setApiCredentials(config('paypal'));
             $paypalToken = $provider->getAccessToken();
 
-            $user_id  = $this->createOrGetClient($data);
+            $user_id = $this->createOrGetClient($data);
 
             $booking_id = $this->saveBooking($user_id, $data['date'], $data['time'], $data['pay_price'], $id);
 
@@ -145,17 +170,18 @@ class HomeController extends Controller
         $response = $provider->capturePaymentOrder($request['token']);
 
 
-
         if (isset($response['status']) & $response['status'] == 'COMPLETED') {
             $booking = Booking::with(['service'])->where('id', $booking_id)->first();
 
-            $amount  = $booking->type === 'deposit'
+            $amount = $booking->type === 'deposit'
                 ? $booking->service->deposit_price
                 : $booking->service->price;
 
-            $this->savePayment($booking_id, 'paypal', $amount);
+            $this->savePayment($booking_id, 'PayPal', $amount);
 
-            toast('Transaction completed', 'success');
+            BookingConfirmedEvent::dispatch($booking_id);
+
+            toast('Transaction completed.' . PHP_EOL . 'Check your email address', 'success');
             return redirect()
                 ->route('home');
         } else {
@@ -181,7 +207,7 @@ class HomeController extends Controller
             'full_name' => 'required',
             'phone' => 'required',
             'email' => 'required',
-            'date' => 'required',
+            'date' => 'required|date_format:Y-m-d|after:yesterday',
             'time' => 'required',
         ]);
 
@@ -191,12 +217,13 @@ class HomeController extends Controller
         $amount = $request->input('amount') * 100;
         $email = $request->input('email');
 
-        DB::transaction(function() use($data, $amount) {
+        DB::transaction(function () use ($data, $amount) {
             $user_id = $this->createOrGetClient($data);
 
             $booking_id = $this->saveBooking($user_id, $data['date'], $data['time'], $data['pay_price'], $data['service_id']);
 
-            $this->savePayment($booking_id, 'stripe', $amount);
+            $this->hul = $booking_id;
+            $this->savePayment($booking_id, 'Credit Card', $amount / 100);
         });
 
         // Create customer
@@ -207,30 +234,40 @@ class HomeController extends Controller
 
         // Create a new Stripe charge.
         PaymentIntent::create([
-            'amount' => $amount/100,
+            'amount' => $amount * 100,
             'currency' => 'usd',
         ]);
-        toast('Payment with credit card successful.', 'success');
 
-        return back();
+        BookingConfirmedEvent::dispatch($this->hul);
+
+        toast('Payment with credit card successful.' . PHP_EOL . 'Check your email address', 'success');
+
+        return redirect()->route('home');
 
     }
 
 
     private function createOrGetClient(array $data)
     {
-        $user = User::firstOrCreate([
-            'name' => $data['full_name'],
-            'email' => $data['email'],
-            'password' => Hash::make(rand(100000, 999999)),
-            'phone' => $data['phone'],
-            'role' => 'client'
-        ]);
+        $user = User::where('email', $data['email'])->first();
+
+        if ($user == null) {
+            $user = User::firstOrCreate([
+                'name' => $data['full_name'],
+                'email' => $data['email'],
+                'password' => Hash::make(rand(100000, 999999)),
+                'phone' => $data['phone'],
+                'role' => 'client'
+            ]);
+        }
+
+
         return $user->id;
 
     }
 
-    private function saveBooking($user_id, $date, $time, $type, $service_id) {
+    private function saveBooking($user_id, $date, $time, $type, $service_id)
+    {
         $booking = Booking::create([
             'user_id' => $user_id,
             'service_id' => $service_id,
@@ -242,6 +279,7 @@ class HomeController extends Controller
 
         return $booking->id;
     }
+
     private function savePayment($booking_id, $method, $amount)
     {
         Payment::create([

@@ -4,7 +4,12 @@
             <div class="rounded-circle overflow-hidden">
                 <img src="<?php echo e(\Illuminate\Support\Facades\Storage::url($service->image)); ?>" style="object-fit: cover; height: 70px; width: 70px;" />
             </div>
+        <?php else: ?>
+            <div class="rounded-circle overflow-hidden">
+                <img src="<?php echo e(asset('assets/img/logo.png')); ?>" style="object-fit: cover; height: 70px; width: 70px;" />
+            </div>
         <?php endif; ?>
+
         <span class="px-2"><?php echo e($service->name); ?></span>
     </a>
 </div>

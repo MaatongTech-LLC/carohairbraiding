@@ -13,11 +13,18 @@ class Service extends Model
         'type',
         'image',
         'duration',
+        'tag',
         'description',
+        'category_id'
     ];
 
     public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

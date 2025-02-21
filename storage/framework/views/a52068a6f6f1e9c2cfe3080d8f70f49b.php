@@ -1,4 +1,4 @@
-<nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
+<nav class="nav navbar navbar-expand-lg navbar-dark iq-navbar bg-dark">
     <div class="container-fluid navbar-inner">
         <a href="#" class="navbar-brand">
             <!--Logo start-->
@@ -6,19 +6,18 @@
             <!--logo End-->
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon">
-                  <span class="mt-2 navbar-toggler-bar bar1"></span>
-                  <span class="navbar-toggler-bar bar2"></span>
-                  <span class="navbar-toggler-bar bar3"></span>
-                </span>
-        </button>
+        <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
+            <i class="icon">
+                <svg width="20px" class="icon-20" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </i>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0">
+            <ul class="mb-2 navbar-nav  ms-auto align-items-center navbar-list mb-lg-0">
                 <li class="nav-item dropdown">
                     <?php
-                        $notifications = \App\Models\Booking::with('service')->where('status', 'unread')->get();
+                        $notifications = \App\Models\Booking::with('service')->where('status', 'unread')->latest()->get();
                     ?>
                     <a href="#" class="nav-link" id="notification-drop" style="position:relative;" data-bs-toggle="dropdown">
                         <svg class="icon-24" width="24" viewBox="0 0 24 24" fill="none"
@@ -32,6 +31,36 @@
                         </svg>
 
                         <?php if(count($notifications) > 0): ?>
+                           <?php $__env->startPush('scripts'); ?>
+                                <script>
+
+                                    document.getElementById('mark-as-read').addEventListener('click', function() {
+
+                                    });
+
+                                    function checkNewItem() {
+                                        fetch("<?php echo e(route('admin.booking.get')); ?>")
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                let notificationCount = document.getElementById('notification-count');
+
+                                                if (data.length > 0) {
+                                                    notificationCount.innerHTML = data.length;
+                                                    playSound();
+                                                }
+                                            })
+                                            .catch(error => console.error('Erreur de la requête AJAX:', error));
+                                    }
+
+                                    function playSound() {
+                                        const audio = new Audio("<?php echo e(asset('admin/assets/audio/notification.mp3')); ?>");
+                                        audio.play();
+                                    }
+
+                                    setInterval(checkNewItem, 5000);
+
+                                </script>
+                           <?php $__env->stopPush(); ?>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" style="position:absolute; top: -25%; left: -120%; z-index: 9999;">
                                 <circle id="notification-dot" cx="80" cy="25" r="8" fill="red">
                                     <animate
@@ -53,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="p-0 card-body">
-                                <?php $__empty_1 = true; $__currentLoopData = $notifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $booking): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                <?php $__empty_1 = true; $__currentLoopData = $notifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $booking): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                     <a href="<?php echo e(route('admin.booking.show', $booking->id)); ?>" class="iq-sub-card">
                                         <div class="d-flex align-items-center">
                                             <img class="p-1 avatar-40 rounded-pill bg-soft-primary" src="<?php echo e(\Illuminate\Support\Facades\Storage::url($booking->service->image)); ?>" alt="">
@@ -69,7 +98,12 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                     <h6 class="text-center my-2">No notification found</h6>
                                 <?php endif; ?>
-
+                                <?php if(count($notifications) > 0): ?>
+                                        <form action="<?php echo e(route('admin.booking.read-all')); ?>" method="POST" class="d-flex py-2 align-items-center justify-content-center">
+                                            <?php echo csrf_field(); ?>
+                                            <button class="btn btn-primary" type="submit" id="mark-as-read">Mark all as read</button>
+                                        </form>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -77,15 +111,16 @@
                 <li class="nav-item dropdown">
                     <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="<?php echo e(asset('admin/assets/images/avatars/01.png')); ?>" alt="User-Profile"
+                        <img src="<?php echo e(auth()->user()->profile_img !== null ?  \Illuminate\Support\Facades\Storage::url( auth()->user()->profile_img) : asset('admin/assets/images/avatars/01.png')); ?>" alt="User-Profile"
                              class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                         <div class="caption ms-3 d-none d-md-block ">
-                            <h6 class="mb-0 caption-title"><?php echo e(auth()->user()->name); ?></h6>
+                            <h6 class="mb-0 caption-title text-light"><?php echo e(auth()->user()->name); ?></h6>
                             <p class="mb-0 caption-sub-title">Manager</p>
                         </div>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        
+                    <ul class="dropdown-menu bg-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="<?php echo e(route('admin.profile.index')); ?>">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
                             <form action="<?php echo e(route('admin.logout')); ?>" method="POST"><?php echo csrf_field(); ?>
                                 <button class="dropdown-item" type="submit">Logout</button>
