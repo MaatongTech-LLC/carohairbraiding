@@ -24,7 +24,7 @@
                 <div class="title-area mb-40 text-center text-xl-start">
                     <span class="sub-title">Our Services<img src="assets/img/theme-img/title_right.svg"
                                                                 alt="" /></span>
-                    <h2 class="sec-title text-white">Discover the amazing haircuts you can get with us</h2>
+                    <h2 class="sec-title text-white">Discover the amazing services you can get with us</h2>
                 </div>
 
                 <div class="d-flex flex-wrap align-items-center gap-1">

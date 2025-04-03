@@ -33,25 +33,49 @@
                             <div class="col-md-12 form-group">
                                 <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Full Name"
                                        value="{{ $_GET['full_name'] ?? '' }}" required>
+                                      
                             </div>
+                            @error('full_name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
 
                             <div class="col-12 form-group">
                                 <input type="text"  name="city" class="form-control" placeholder="Town / City" value=""
                                        required>
                             </div>
+                            @error('city')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                             <div class="col-md-6 form-group">
                                 <input type="text" name="state" class="form-control" placeholder="State" required>
                             </div>
+                            @error('state')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                             <div class="col-md-6 form-group">
                                 <input name="postcode" type="text" class="form-control" placeholder="Postcode / Zip"
                                        required>
                             </div>
-                            <div class="col-12 form-group"><input id="email" name="email" type="email" class="form-control"
+                            @error('postcode')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            <div class="col-12 form-group">
+                                <input id="email" name="email" type="email" class="form-control"
                                                                   placeholder="Email Address"
                                                                   value="{{ $_GET['email'] ?? '' }}" required>
+                            </div>
+                            @error('email')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            <div class="col-12 form-group">
+
                                 <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number"
                                        value="{{ $_GET['phone'] ?? '' }}" required>
                             </div>
+                            @error('phone')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -83,7 +107,7 @@
                                 </td>
                                 <td data-title="Date"><span class="cart-productname">{{ $time }}</span>
                                 </td>
-                                <td data-title="Price"><span class="amount"><bdi><span>$</span>{{   }}</bdi></span>
+                                <td data-title="Price"><span class="amount"><bdi><span>$</span>{{ $pay_price  }}</bdi></span>
                                 </td>
                                 <td data-title="Total"><span class="amount"><bdi><span>$</span>{{ $pay_price }}</bdi></span>
                                 </td>

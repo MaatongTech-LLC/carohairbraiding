@@ -22,7 +22,7 @@
                                     <hr class="style1">
                                     <div class="available-list">
                                         <ul>
-                                            <?php $__empty_1 = true; $__currentLoopData = $category->services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <?php $__empty_1 = true; $__currentLoopData = $category->services()->get()->take(10); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                                 <li><img src="<?php echo e(asset('assets/img/theme-img/title_left.svg')); ?>" alt=""><?php echo e($service->name); ?></li>
 
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>

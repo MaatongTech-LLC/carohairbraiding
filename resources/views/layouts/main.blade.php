@@ -70,41 +70,7 @@
             </div>
         </div>
     </div>
-{{--
-    <div class="sidemenu-wrapper shopping-cart d-none d-lg-block">
-        <div class="sidemenu-content">
-            <div class="widget woocommerce widget_shopping_cart">
-                <h3 class="widget_title">Shopping cart</h3>
-                <div class="widget_shopping_cart_content">
-                    <ul class="woocommerce-mini-cart cart_list product_list_widget">
 
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"></a>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <a href="#"><img src="assets/img/product/product_thumb_1_5.jpg"
-                                            alt="Cart Image" /> Argan Hair oil</a>
-                                    <span class="quantity">1 ×<span class="woocommerce-Price-amount amount">$81</span>
-                                    </span>
-                                </div>
-                                <a href="#"><i class="fa fa-x"></i></a>
-                            </div>
-                        </li>
-                    </ul>
-                    <p class="woocommerce-mini-cart__total total">
-                        <strong>Subtotal:</strong>
-                        <span class="woocommerce-Price-amount amount"><span
-                                class="woocommerce-Price-currencySymbol">$</span>43</span>
-                    </p>
-                    <p class="woocommerce-mini-cart__buttons buttons">
-                        <a href="/cart" class="th-btn wc-forward">View cart</a>
-                        <a href="/checkout" class="th-btn checkout wc-forward">Checkout</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
---}}
     @include('partials.header')
 
     @yield('content')

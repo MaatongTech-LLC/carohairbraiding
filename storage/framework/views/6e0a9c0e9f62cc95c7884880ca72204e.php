@@ -32,25 +32,91 @@
                             <div class="col-md-12 form-group">
                                 <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Full Name"
                                        value="<?php echo e($_GET['full_name'] ?? ''); ?>" required>
+                                      
                             </div>
+                            <?php $__errorArgs = ['full_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <small class="text-danger"><?php echo e($message); ?></small>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
 
                             <div class="col-12 form-group">
                                 <input type="text"  name="city" class="form-control" placeholder="Town / City" value=""
                                        required>
                             </div>
+                            <?php $__errorArgs = ['city'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <small class="text-danger"><?php echo e($message); ?></small>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             <div class="col-md-6 form-group">
                                 <input type="text" name="state" class="form-control" placeholder="State" required>
                             </div>
+                            <?php $__errorArgs = ['state'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <small class="text-danger"><?php echo e($message); ?></small>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             <div class="col-md-6 form-group">
                                 <input name="postcode" type="text" class="form-control" placeholder="Postcode / Zip"
                                        required>
                             </div>
-                            <div class="col-12 form-group"><input id="email" name="email" type="email" class="form-control"
+                            <?php $__errorArgs = ['postcode'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <small class="text-danger"><?php echo e($message); ?></small>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            <div class="col-12 form-group">
+                                <input id="email" name="email" type="email" class="form-control"
                                                                   placeholder="Email Address"
                                                                   value="<?php echo e($_GET['email'] ?? ''); ?>" required>
+                            </div>
+                            <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <small class="text-danger"><?php echo e($message); ?></small>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            <div class="col-12 form-group">
+
                                 <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number"
                                        value="<?php echo e($_GET['phone'] ?? ''); ?>" required>
                             </div>
+                            <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <small class="text-danger"><?php echo e($message); ?></small>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -82,9 +148,9 @@
                                 </td>
                                 <td data-title="Date"><span class="cart-productname"><?php echo e($time); ?></span>
                                 </td>
-                                <td data-title="Price"><span class="amount"><bdi><span>$</span><?php echo e(}}</bdi></span>
+                                <td data-title="Price"><span class="amount"><bdi><span>$</span><?php echo e($pay_price); ?></bdi></span>
                                 </td>
-                                <td data-title="Total"><span class="amount"><bdi><span>$</span>{{ $pay_price); ?></bdi></span>
+                                <td data-title="Total"><span class="amount"><bdi><span>$</span><?php echo e($pay_price); ?></bdi></span>
                                 </td>
                             </tr>
                             </tbody>

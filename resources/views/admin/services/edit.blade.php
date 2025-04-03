@@ -1,8 +1,6 @@
 @extends('admin.layouts.main')
 
-@section('title')
-
-@endsection
+@section('title', 'Edit Service')
 @section('content')
     <div class="container-fluid content-inner mt-n5 py-0">
         <div class="row">
@@ -11,7 +9,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Edit Profile</h4>
+                            <h4 class="card-title">Edit Service</h4>
                         </div>
                     </div>
                     <div class="card-body">

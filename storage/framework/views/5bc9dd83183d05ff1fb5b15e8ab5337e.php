@@ -45,12 +45,12 @@
                                 <div class="form-group col-12">
                                     <label class="mb-2" for="date-pick">Date</label>
                                     <input type="text" class="date-pick form-control" name="date" id="date-pick"
-                                           placeholder="Select Date" required/>
+                                           placeholder="Select Date" required autocomplete="off"/>
                                 </div>
                                 <div class="form-group col-12">
                                     <label class="mb-2" for="time-pick">Time</label>
                                     <input type="text" class="time-pick form-control" name="time" id="time-pick"
-                                           placeholder="Select Time" required/>
+                                           placeholder="Select Time" required autocomplete="off"/>
                                 </div>
 
                                 <div class="wc_payment_method payment_method_cod">

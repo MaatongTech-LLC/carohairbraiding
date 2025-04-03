@@ -23,7 +23,7 @@
                                     <hr class="style1">
                                     <div class="available-list">
                                         <ul>
-                                            @forelse($category->services as $service)
+                                            @forelse($category->services()->get()->take(10) as $service)
                                                 <li><img src="{{ asset('assets/img/theme-img/title_left.svg') }}" alt="">{{ $service->name }}</li>
 
                                             @empty

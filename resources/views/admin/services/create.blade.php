@@ -115,5 +115,4 @@
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/html-duration-picker@latest/dist/html-duration-picker.min.js"></script>
 
-
 @endpush

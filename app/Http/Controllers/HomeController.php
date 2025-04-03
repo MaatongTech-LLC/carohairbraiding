@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\BookingConfirmedEvent;
+use Stripe\Charge;
+use Stripe\Stripe;
+use App\Models\User;
+use Stripe\Customer;
+use App\Mail\Contact;
 use App\Models\Booking;
-use App\Models\Category;
 use App\Models\Payment;
 use App\Models\Service;
-use App\Models\User;
+use App\Models\Category;
+use Stripe\PaymentIntent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Events\BookingConfirmedEvent;
+use App\Notifications\ClientBookingReceipt;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\AdminBookingNotification;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
-use Stripe\Charge;
-use Stripe\Customer;
-use Stripe\PaymentIntent;
-use Stripe\Stripe;
 
 
 class HomeController extends Controller
@@ -179,7 +185,11 @@ class HomeController extends Controller
 
             $this->savePayment($booking_id, 'PayPal', $amount);
 
-            BookingConfirmedEvent::dispatch($booking_id);
+            // Notify the admin
+            Notification::route('mail', env('ADMIN_EMAIL'))->notify(new AdminBookingNotification($booking));
+
+            // Notify the client
+            Notification::route('mail', $booking->user->email)->notify(new ClientBookingReceipt($booking));
 
             toast('Transaction completed.' . PHP_EOL . 'Check your email address', 'success');
             return redirect()
@@ -217,12 +227,14 @@ class HomeController extends Controller
         $amount = $request->input('amount') * 100;
         $email = $request->input('email');
 
+
         DB::transaction(function () use ($data, $amount) {
             $user_id = $this->createOrGetClient($data);
 
             $booking_id = $this->saveBooking($user_id, $data['date'], $data['time'], $data['pay_price'], $data['service_id']);
 
-            $this->hul = $booking_id;
+            $this->hul = Booking::find($booking_id);
+
             $this->savePayment($booking_id, 'Credit Card', $amount / 100);
         });
 
@@ -238,7 +250,13 @@ class HomeController extends Controller
             'currency' => 'usd',
         ]);
 
-        BookingConfirmedEvent::dispatch($this->hul);
+        $booking = $this->hul;
+
+         // Notify the admin
+         Notification::route('mail', env('ADMIN_EMAIL'))->notify(new AdminBookingNotification($booking));
+
+         // Notify the client
+         Notification::route('mail', $booking->user->email)->notify(new ClientBookingReceipt($booking));
 
         toast('Payment with credit card successful.' . PHP_EOL . 'Check your email address', 'success');
 
@@ -287,5 +305,23 @@ class HomeController extends Controller
             'amount' => $amount,
             'method' => $method,
         ]);
+    }
+
+    public function contactPost(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new Contact($validated));
+
+        toast('We received your message!', 'success');
+
+        return redirect()->back();
+
     }
 }

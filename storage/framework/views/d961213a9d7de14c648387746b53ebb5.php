@@ -74,7 +74,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="contact-form-wrapper">
-                        <form action="mail.php" method="POST" class="contact-form ajax-contact">
+                        <form action="<?php echo e(route('contact.post')); ?>" method="POST" class="contact-form">
+                            <?php echo csrf_field(); ?>
                             <h2 class="form-title text-center">Get In Touch</h2>
                             <div class="row">
                                 <div class="form-group col-md-6">
@@ -82,28 +83,78 @@
                                     <input type="text" class="form-control" name="name" id="name"
                                            placeholder="Your Name">
                                 </div>
+                                <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <small class="text-danger"><?php echo e($message); ?></small>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 <div class="form-group col-md-6">
                                     <i class="fa-sharp fa-regular fa-envelope"></i>
                                     <input type="email" class="form-control" name="email" id="email"
                                            placeholder="Email Address">
                                 </div>
+                                <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <small class="text-danger"><?php echo e($message); ?></small>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" name="number" id="number"
+                                    <input type="tel" class="form-control" name="phone" id="phone"
                                            placeholder="Phone Number">
                                     <i class="fal fa-phone"></i>
                                 </div>
+                                <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <small class="text-danger"><?php echo e($message); ?></small>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" name="subject" id="subject"
                                            placeholder="Subject">
                                     <i class="fal fa-question"></i>
                                 </div>
+                                <?php $__errorArgs = ['subject'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <small class="text-danger"><?php echo e($message); ?></small>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 <div class="form-group col-12">
                                     <i class="fal fa-comment"></i>
                                     <textarea name="message" id="message" cols="30" rows="3" class="form-control"
                                               placeholder="Message"></textarea>
                                 </div>
+                                <?php $__errorArgs = ['message'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <small class="text-danger"><?php echo e($message); ?></small>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 <div class="form-btn col-12">
-                                    <button class="th-btn fw-btn">
+                                    <button class="th-btn fw-btn" type="submit">
                                         Send Message<i class="fa-solid fa-arrow-right ms-2"></i>
                                     </button>
                                 </div>

@@ -24,7 +24,8 @@
                     ALL
                 </button>
 
-                <span class="indicator" style="--height-set: 46px; --width-set: 56.9219px; --pos-y: 483.484375px; --pos-x: 19.5625px;"></span></div>
+                <span class="indicator" style="--height-set: 46px; --width-set: 56.9219px; --pos-y: 483.484375px; --pos-x: 19.5625px;"></span>
+            </div>
             <div class="row gallery-row filter-active" style="position: relative; height: 3878.53px;">
                 <div class="col-md-6 col-xl-auto filter-item cat1 cat2 cat5 cat4 cat3" style="position: absolute; left: 0px; top: 0px;">
                     <div class="gallery-card wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">

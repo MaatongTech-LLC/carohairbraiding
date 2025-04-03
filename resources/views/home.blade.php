@@ -283,7 +283,7 @@
                                         <div class="price-box_wrapp">
                                             <div class="price-box_content">
                                                 <h4 class="box-title">
-                                                    <a href="#">{{ $service->name }}</a>
+                                                    <a href="{{ route('booking', $service->id)}}">{{ $service->name }}</a>
                                                 </h4>
                                                 <p class="price-box_desc">
                                                     Caro Hair Braiding
@@ -304,7 +304,7 @@
                                         <div class="price-box_wrapp">
                                             <div class="price-box_content">
                                                 <h4 class="box-title">
-                                                    <a href="#">{{ $service->name }}</a>
+                                                    <a href="{{ route('booking', $service->id)}}">{{ $service->name }}</a>
                                                 </h4>
                                                 <p class="price-box_desc">
                                                     Caro Hair Braiding
@@ -326,7 +326,7 @@
                                         <div class="price-box_wrapp">
                                             <div class="price-box_content">
                                                 <h4 class="box-title">
-                                                    <a href="#">{{ $service->name }}</a>
+                                                    <a href="{{ route('booking', $service->id)}}">{{ $service->name }}</a>
                                                 </h4>
                                                 <p class="price-box_desc">
                                                     Caro Hair Braiding

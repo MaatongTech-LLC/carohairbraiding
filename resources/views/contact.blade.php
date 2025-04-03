@@ -74,7 +74,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="contact-form-wrapper">
-                        <form action="mail.php" method="POST" class="contact-form ajax-contact">
+                        <form action="{{ route('contact.post') }}" method="POST" class="contact-form">
+                            @csrf
                             <h2 class="form-title text-center">Get In Touch</h2>
                             <div class="row">
                                 <div class="form-group col-md-6">
@@ -82,28 +83,43 @@
                                     <input type="text" class="form-control" name="name" id="name"
                                            placeholder="Your Name">
                                 </div>
+                                @error('name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                                 <div class="form-group col-md-6">
                                     <i class="fa-sharp fa-regular fa-envelope"></i>
                                     <input type="email" class="form-control" name="email" id="email"
                                            placeholder="Email Address">
                                 </div>
+                                @error('email')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                                 <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" name="number" id="number"
+                                    <input type="tel" class="form-control" name="phone" id="phone"
                                            placeholder="Phone Number">
                                     <i class="fal fa-phone"></i>
                                 </div>
+                                @error('phone')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" name="subject" id="subject"
                                            placeholder="Subject">
                                     <i class="fal fa-question"></i>
                                 </div>
+                                @error('subject')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                                 <div class="form-group col-12">
                                     <i class="fal fa-comment"></i>
                                     <textarea name="message" id="message" cols="30" rows="3" class="form-control"
                                               placeholder="Message"></textarea>
                                 </div>
+                                @error('message')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                                 <div class="form-btn col-12">
-                                    <button class="th-btn fw-btn">
+                                    <button class="th-btn fw-btn" type="submit">
                                         Send Message<i class="fa-solid fa-arrow-right ms-2"></i>
                                     </button>
                                 </div>
